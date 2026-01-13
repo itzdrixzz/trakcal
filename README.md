@@ -1,5 +1,7 @@
 # Trakcal
 
+# Warning Trakcal is in extremely early development and is not yet a functional app.
+
 ## Description
 
 **Trakcal** is a fitness and calorie tracking mobile app that I am creating to help myself lose weight. I started Trakcal after trying multiple different calorie tracking apps that all worked—until the time came to pay for the subscription. I didn’t have the money to pay, so I just stopped working out.
