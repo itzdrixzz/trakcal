@@ -28,7 +28,7 @@ const EmailSignIn = () => {
       // and redirect the user
       if (signInAttempt.status === 'complete') {
         await setActive({ session: signInAttempt.createdSessionId })
-        router.replace('../(home)/home')
+        router.replace('/(onboarding)/onboarding')
       } else {
         // If the status isn't complete, check why. User might need to
         // complete further steps.

@@ -6,7 +6,7 @@ export default function AuthRoutesLayout() {
 
   // If clerk user signed in then redirect them to home page
   if (isSignedIn) {
-    return <Redirect href={'../(home)/home'} />
+    return <Redirect href={'/(onboarding)/onboarding'} />
   }
 
   // remove the browser looking thing from the top of the screen

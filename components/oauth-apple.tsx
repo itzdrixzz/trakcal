@@ -52,7 +52,7 @@ export default function AppleOauth({ option }: AppleButtonProps) {
           // Check for session tasks and navigate to custom UI to help users resolve them
           // See https://clerk.com/docs/guides/development/custom-flows/overview#session-tasks
           navigate: async ({ session }) => {
-            router.push('/(home)/home')
+            router.push('/(onboarding)/onboarding')
           },
         })
       } else {

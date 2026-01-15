@@ -13,5 +13,5 @@ export default function Index() {
   }
 
   // Logged in → home
-  return <Redirect href="/(home)/home" />;
+  return <Redirect href="/(onboarding)/onboarding" />;
 }
