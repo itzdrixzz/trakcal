@@ -54,7 +54,7 @@ const Onboarding = () => {
                 </View>
               </View>
               <View className="mb-[50px] mx-[25px]">
-                <TouchableOpacity disabled={!selectedOption}  className={`py-[22px] rounded-full items-center ${selectedOption ? 'bg-[#000000]' : 'bg-gray-300'}`}><Text className="text-[#ffffff] text-xl font-medium">Continue</Text></TouchableOpacity>
+                  <TouchableOpacity disabled={!selectedOption} onPress={() => (router.replace('/(onboarding)/workouts'))}  className={`py-[22px] rounded-full items-center ${selectedOption ? 'bg-[#000000]' : 'bg-gray-300'}`}><Text className="text-[#ffffff] text-xl font-medium">Continue</Text></TouchableOpacity>
               </View>
         </SafeAreaView>
   );
