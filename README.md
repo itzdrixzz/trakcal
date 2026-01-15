@@ -27,7 +27,25 @@ First, install the dependencies:
 npm install --force
 ```
 
-Then start the Expo development server:
+```bash
+cd /API
+```
+
+```bash
+npm install
+```
+
+Then, install ngrok to forward the api to the public
+
+next start all the development servers:
+
+```bash
+ngrok http 3000
+```
+
+```bash
+cd & node index.js
+```
 
 ```bash
 npx expo start
