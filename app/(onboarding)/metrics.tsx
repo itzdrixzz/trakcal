@@ -17,7 +17,7 @@ const Metrics = () => {
                     <Ionicons className="pt-[10px] pl-[25px] mr-[5px]" size={25} name="arrow-back-outline"/>
                   </Pressable>
                   <View className="h-[3px] bg-[#e8e8e8] w-[300px] mt-[10px] rounded-full">
-                    <View className="h-[3px] bg-[#000000] w-[100px] rounded-full"/>
+                    <View className="h-[3px] bg-[#000000] w-[126px] rounded-full"/>
                   </View>
                 </View>
                 <Text className="text-3xl ml-[30px] font-bold">Height & weight</Text>
@@ -38,7 +38,7 @@ const Metrics = () => {
                 </View>
               </View>
               <View className="mb-[50px] mx-[25px]">
-            <TouchableOpacity  className="py-[22px] rounded-full items-center bg-black"><Text className="text-[#ffffff] text-xl font-medium">Continue</Text></TouchableOpacity>
+            <TouchableOpacity  className="py-[22px] rounded-full items-center bg-black"><Text className="text-[#ffffff] text-xl font-medium" onPress={() => (router.push('/(onboarding)/goal'))}>Continue</Text></TouchableOpacity>
         </View>
     </SafeAreaView>
   )

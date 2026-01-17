@@ -16,7 +16,7 @@ const Workouts = () => {
                     <Ionicons className="pt-[10px] pl-[25px] mr-[5px]" size={25} name="arrow-back-outline"/>
                   </Pressable>
                   <View className="h-[3px] bg-[#e8e8e8] w-[300px] mt-[10px] rounded-full">
-                    <View className="h-[3px] bg-[#000000] w-[50px] rounded-full"/>
+                    <View className="h-[3px] bg-[#000000] w-[84px] rounded-full"/>
                   </View>
                 </View>
                 <Text className="text-3xl ml-[30px] font-bold">How many workouts do{"\n"}you do per week?</Text>
@@ -33,7 +33,7 @@ const Workouts = () => {
                 </View>
               </View>
               <View className="mb-[50px] mx-[25px]">
-            <TouchableOpacity disabled={!selectedOption} onPress={() => (router.replace('/(onboarding)/metrics'))}  className={`py-[22px] rounded-full items-center ${selectedOption ? 'bg-[#000000]' : 'bg-gray-300'}`}><Text className="text-[#ffffff] text-xl font-medium">Continue</Text></TouchableOpacity>
+            <TouchableOpacity disabled={!selectedOption} onPress={() => (router.push('/(onboarding)/metrics'))}  className={`py-[22px] rounded-full items-center ${selectedOption ? 'bg-[#000000]' : 'bg-gray-300'}`}><Text className="text-[#ffffff] text-xl font-medium">Continue</Text></TouchableOpacity>
         </View>
     </SafeAreaView>
   )
