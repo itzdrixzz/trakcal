@@ -1,9 +1,14 @@
 import { useUser } from '@clerk/clerk-expo';
-import { Ionicons } from '@expo/vector-icons';
 import { Redirect, router } from 'expo-router';
 import React, { useState } from 'react';
-import { Pressable, Text, TouchableOpacity, View, } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Text } from 'react-native';
+import Desired from './desired-weight';
+import Fast from './fast';
+import Gender from './gender';
+import Goal from './goal';
+import Metrics from './metrics';
+import Motivation from './motivation';
+import Workouts from './workouts';
    
 type publicMetadata = {
   hasCompletedOnboarding?: boolean;
@@ -11,9 +16,28 @@ type publicMetadata = {
 
 const Onboarding = () => {
   const { isSignedIn, user, isLoaded } = useUser();
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  // Example options
-  const options = ['Male', 'Female', 'Other'];
+  const [step, setStep] = useState(0);
+
+  const [form, setForm] = useState({
+    desiredWeight: "",
+    weightLosePerWeek: "",
+    gender: "",
+    goal: "",
+    fast: "",
+    workouts: "",
+    metrics: {
+      height: "",
+      weight: "",
+      age: "",
+    },
+  })
+
+  const workoutOptions: ("0-2" | "3-5" | "6+")[] = ['0-2', '3-5', '6+'];
+  const goalOptions: ("Lose Weight" | "Maintain Weight" | "Gain Weight")[] = ['Lose Weight', 'Maintain Weight', 'Gain Weight']
+  const GenderOptions: ("Male" | "Female" | "Other")[] = ['Male', 'Female', 'Other'];
+
+  const next = () => setStep((s) => Math.min(s + 1, 6));
+  const back = () => setStep((s) => Math.max(s - 1, 0));
 
   React.useEffect(() => {
     if (user) {
@@ -30,33 +54,76 @@ const Onboarding = () => {
   if (!isLoaded) return <Text>Loading...</Text>;
   
   return (
-    <SafeAreaView className="flex-1">
-              <View className="">
-                <View className="flex-row items-center">
-                  <Pressable onPress={() => router.back()}>
-                    <Ionicons className="pt-[10px] pl-[25px] mr-[5px]" size={25} name="arrow-back-outline"/>
-                  </Pressable>
-                  <View className="h-[3px] bg-[#e8e8e8] w-[300px] mt-[10px] rounded-full">
-                    <View className="h-[3px] bg-[#000000] w-[42px] rounded-full"/>
-                  </View>
-                </View>
-                <Text className="text-3xl ml-[30px] font-bold">Choose your Gender</Text>
-                <Text className="ml-[30px] mt-[5px] text-sm font-medium text-[#303030]">This will be used to calibrate your custom plan</Text>
-              </View>
-              <View className="flex-1 items-center justify-center">
-                <View>
-                  {options.map((option, Index) => (
-                    <TouchableOpacity key={Index}  className={`py-[25px] w-[340px] mb-[10px] rounded-2xl items-center ${selectedOption === option ? 'bg-[#000000]' : 'bg-[#f2f2f2]'}`} onPress={() => setSelectedOption(option)}>
-                      <Text className={`${selectedOption === option ? 'text-white' : 'text-black'} font-semibold`}>{option}</Text>
-                    </TouchableOpacity>
-                  ))}
-                  
-                </View>
-              </View>
-              <View className="mb-[50px] mx-[25px]">
-                  <TouchableOpacity disabled={!selectedOption} onPress={() => (router.push('/(onboarding)/workouts'))}  className={`py-[22px] rounded-full items-center ${selectedOption ? 'bg-[#000000]' : 'bg-gray-300'}`}><Text className="text-[#ffffff] text-xl font-medium">Continue</Text></TouchableOpacity>
-              </View>
-        </SafeAreaView>
+    <>
+      {step === 0 && (
+        <Gender
+        gender={form.gender}
+        genderOption={GenderOptions as ("Male" | "Female" | "Other")[]}
+        onChange={(value) => setForm({ ...form, gender: value })}
+        onNext={next}
+        />
+      )}
+
+      {step === 1 && (
+        <Workouts
+          workouts={form.workouts}
+          workoutOptions={workoutOptions as ("0-2" | "3-5" | "6+")[]}
+          onChange={(value) => setForm({ ...form, workouts: value})}
+          onNext={next}
+          onBack={back}
+        />
+      )}
+
+      {step === 2 && (
+        <Metrics
+          height={form.metrics.height}
+          weight={form.metrics.weight}
+          age={form.metrics.age}
+          onChange={(field, value) => {setForm({ ...form, metrics: { ...form.metrics, [field]: value,}})}}
+          onNext={next}
+          onBack={back}
+        />
+      )}
+
+      {step === 3 && (
+        <Goal
+          goal={form.goal}
+          goalOptions={goalOptions as ("Lose Weight" | "Maintain Weight" | "Gain Weight")[]}
+          onChange={(value) => setForm({ ...form, goal: value})}
+          onNext={next}
+          onBack={back}
+        />
+      )}
+
+      {step === 4 && (
+        <Desired
+          desiredWeight={form.desiredWeight}
+          goal={form.goal}
+          onChange={(value) => setForm({ ...form, desiredWeight: value})}
+          onNext={next}
+          onBack={back}
+        />
+      )}
+
+      {step === 5 && (
+        <Motivation
+          goal={form.goal}
+          desiredWeight={form.desiredWeight}
+          onNext={next}
+          onBack={back}
+        />
+      )}
+
+      {step === 6 && (
+        <Fast
+          goal={form.goal}
+          fast={form.fast}
+          onChange={(value) => setForm({ ...form, fast: value })}
+          onNext={next}
+          onBack={back}
+        />
+      )}
+    </>
   );
 };
 

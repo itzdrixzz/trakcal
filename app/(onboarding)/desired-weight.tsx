@@ -1,18 +1,24 @@
 import { Ionicons } from '@expo/vector-icons'
 import Slider from '@react-native-community/slider'
-import { router } from 'expo-router'
-import React, { useState } from 'react'
+import React from 'react'
 import { Pressable, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const Desired = () => {
-const [value, setValue] = useState(150)
+type desiredProps = {
+  desiredWeight: string;
+  goal: string;
+  onChange: (value: string) => void;
+  onNext: () => void;  
+  onBack: () => void;  
+}
+
+const Desired: React.FC<desiredProps> = ({ desiredWeight, onChange, onNext, onBack, goal}) => {
 
   return (
     <SafeAreaView className="flex-1">
     <View className="">
         <View className="flex-row items-center">
-            <Pressable onPress={() => router.back()}>
+            <Pressable onPress={onBack}>
                 <Ionicons className="pt-[10px] pl-[25px] mr-[5px]" size={25} name="arrow-back-outline"/>
                   </Pressable>
                   <View className="h-[3px] bg-[#e8e8e8] w-[300px] mt-[10px] rounded-full">
@@ -24,15 +30,15 @@ const [value, setValue] = useState(150)
               </View>
               <View className="flex-1 items-center justify-center">
                 <View className="w-full justify-center items-center">
-                  <Text className="text-lg font-medium mb-[10px]">Lose Weight</Text>  
-                  <Text className="text-5xl font-bold mb-[20px]">{value} LB</Text>
+                  <Text className="text-lg font-medium mb-[10px]">{goal === "Lose Weight" ? "Losing Weight" : goal === "Maintain Weight" ? "Maintain Weight" : "Gain Weight"}</Text>  
+                  <Text className="text-5xl font-bold mb-[20px]">{desiredWeight} LB</Text>
                   <View className="w-full px-[25px]">
-                    <Slider minimumValue={1} maximumValue={300} step={1} value={value} onValueChange={setValue} minimumTrackTintColor="#000000" maximumTrackTintColor="#dddddd" thumbTintColor="#ffffff"/>
+                    <Slider minimumValue={1} maximumValue={300} step={1} value={Number(desiredWeight) || 150} onValueChange={(val) => onChange(val.toString())} minimumTrackTintColor="#000000" maximumTrackTintColor="#dddddd" thumbTintColor="#ffffff"/>
                   </View>
                 </View>
               </View>
               <View className="mb-[50px] mx-[25px]">
-            <TouchableOpacity className="py-[22px] rounded-full items-center bg-[#000000]"><Text className="text-[#ffffff] text-xl font-medium" onPress={() => (router.push('/(onboarding)/motivation'))}>Continue</Text></TouchableOpacity>
+            <TouchableOpacity className="py-[22px] rounded-full items-center bg-[#000000]"><Text className="text-[#ffffff] text-xl font-medium" onPress={onNext}>Continue</Text></TouchableOpacity>
         </View>
     </SafeAreaView>
   )

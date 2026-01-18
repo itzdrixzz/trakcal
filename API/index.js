@@ -19,6 +19,8 @@ app.post('/clerk/webhooks/signup', async (req, res) => {
     await clerkClient.users.updateUserMetadata(userId, {
         publicMetadata: {
             hasCompletedOnboarding: false,
+            convexAccountCreated: false,
+            onboardingStep: '0'
         },
     })
 

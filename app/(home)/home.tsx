@@ -8,10 +8,12 @@ const home = () => {
 const {user} = useUser()
 
 const Name = user?.firstName;
+const userId = user?.id;
 
   return (
     <SafeAreaView>
       <Text>home</Text>
+      <Text>{userId}</Text>
       <Text>hello {Name}</Text>
       <SignOutButton/>
     </SafeAreaView>

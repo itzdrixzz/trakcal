@@ -1,18 +1,24 @@
 import { Ionicons } from '@expo/vector-icons'
 import Slider from '@react-native-community/slider'
-import { router } from 'expo-router'
-import React, { useState } from 'react'
+import React from 'react'
 import { Pressable, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const Fast = () => {
-const [value, setValue] = useState(1.5)
+type fastProps = {
+    goal: string;
+    fast: string;
+    onChange: (value: string) => void;
+    onNext: () => void; 
+    onBack: () => void; 
+}
+
+const Fast: React.FC<fastProps> = ({ goal, onChange, onNext, onBack, fast }) => {
 
   return (
     <SafeAreaView className="flex-1">
     <View className="">
         <View className="flex-row items-center">
-            <Pressable onPress={() => router.back()}>
+            <Pressable onPress={onBack}>
                 <Ionicons className="pt-[10px] pl-[25px] mr-[5px]" size={25} name="arrow-back-outline"/>
                   </Pressable>
                   <View className="h-[3px] bg-[#e8e8e8] w-[300px] mt-[10px] rounded-full">
@@ -24,11 +30,11 @@ const [value, setValue] = useState(1.5)
               </View>
               <View className="flex-1 items-center justify-center">
                 <View className="w-full justify-center items-center">
-                  <Text className="text-lg font-medium mb-[10px] text-center">Weight loss speed per week</Text>  
-                  <Text className="text-4xl font-bold mb-[20px]">{value} LB</Text>
+                  <Text className="text-lg font-medium mb-[10px] text-center">{goal === "Lose Weight" ? "Weight Loss" : goal === "Maintain Weight" ? "Maintaining" : "Weight Gaining"} speed per week</Text>  
+                  <Text className="text-4xl font-bold mb-[20px]">{fast || 1.5} LB</Text>
                   <View className="w-full">
                     <View className="px-[25px]">
-                        <Slider minimumValue={0.5} maximumValue={2.5} step={0.5} value={value} onValueChange={setValue} minimumTrackTintColor="#000000" maximumTrackTintColor="#dddddd" thumbTintColor="#ffffff"/>
+                        <Slider minimumValue={0.5} maximumValue={2.5} step={0.5} value={Number(fast) || 1.5} onValueChange={(val) => onChange(val.toString())} minimumTrackTintColor="#000000" maximumTrackTintColor="#dddddd" thumbTintColor="#ffffff"/>
                     </View>
                     <View className="flex-row px-[25px] items-center justify-center">
                         <Text className="text-xl">0.5 lb</Text>
