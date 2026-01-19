@@ -2,38 +2,39 @@ import { v } from "convex/values";
 import { mutation, query } from "../_generated/server";
 
 export const getUser = query({
-    args: { userId: v.string()},
-    handler: async (ctx, args) => {
-        return await ctx.db.query("user").withIndex("by_userId", (q) => q.eq("userId", args.userId)).unique();
-    },
+  args: { userId: v.string() },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("user")
+      .withIndex("by_userId", (q) => q.eq("userId", args.userId))
+      .unique();
+  },
 });
 
 export const addUser = mutation({
-    args: {userId: v.string()},
-    handler: async (ctx, args) => {
-        const user = await ctx.db.insert("user", {
-            userId: args.userId,
-        });
-    },
+  args: {
+    userId: v.string(),
+    age: v.float64(),
+    desiredWeightKg: v.float64(),
+    gender: v.string(),
+    goal: v.string(),
+    heightCm: v.float64(),
+    lossPerWeek: v.float64(),
+    weightKg: v.float64(),
+    workoutsPerWeek: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const user = await ctx.db.insert("user", {
+      userId: args.userId,
+      age: args.age,
+      desiredWeightKg: args.desiredWeightKg,
+      gender: args.gender,
+      goal: args.goal,
+      heightCm: args.heightCm,
+      lossPerWeek: args.lossPerWeek,
+      weightKg: args.weightKg,
+      workoutsPerWeek: args.workoutsPerWeek,
+    });
+    return user;
+  },
 });
-
-export const addAge = mutation({
-    args: { 
-        age: v.number(),
-        userId: v.string(),
-    },
-
-    handler: async ( ctx, args ) => {
-        const user = await ctx.db.query("user").withIndex("by_userId", (q) => q.eq("userId", args.userId)).unique();
-
-        if (!user){
-            console.log("User not found");
-            return;
-        };
-
-        await ctx.db.patch(user._id, {
-            age: args.age,
-        })
-    },
-});
-

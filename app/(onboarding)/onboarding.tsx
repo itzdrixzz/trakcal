@@ -1,15 +1,18 @@
-import { useUser } from '@clerk/clerk-expo';
-import { Redirect, router } from 'expo-router';
-import React, { useState } from 'react';
-import { Text } from 'react-native';
-import Desired from './desired-weight';
-import Fast from './fast';
-import Gender from './gender';
-import Goal from './goal';
-import Metrics from './metrics';
-import Motivation from './motivation';
-import Workouts from './workouts';
-   
+import { api } from "@/convex/_generated/api";
+import { useUser } from "@clerk/clerk-expo";
+import axios from "axios";
+import { useMutation } from "convex/react";
+import { Redirect, router } from "expo-router";
+import React, { useState } from "react";
+import { Text } from "react-native";
+import Desired from "./desired-weight";
+import Fast from "./fast";
+import Gender from "./gender";
+import Goal from "./goal";
+import Metrics from "./metrics";
+import Motivation from "./motivation";
+import Workouts from "./workouts";
+
 type publicMetadata = {
   hasCompletedOnboarding?: boolean;
 };
@@ -17,6 +20,7 @@ type publicMetadata = {
 const Onboarding = () => {
   const { isSignedIn, user, isLoaded } = useUser();
   const [step, setStep] = useState(0);
+  const addConvexUser = useMutation(api.functions.user.addUser);
 
   const [form, setForm] = useState({
     desiredWeight: "",
@@ -30,37 +34,85 @@ const Onboarding = () => {
       weight: "",
       age: "",
     },
-  })
+  });
 
-  const workoutOptions: ("0-2" | "3-5" | "6+")[] = ['0-2', '3-5', '6+'];
-  const goalOptions: ("Lose Weight" | "Maintain Weight" | "Gain Weight")[] = ['Lose Weight', 'Maintain Weight', 'Gain Weight']
-  const GenderOptions: ("Male" | "Female" | "Other")[] = ['Male', 'Female', 'Other'];
+  const workoutOptions: ("0-2" | "3-5" | "6+")[] = ["0-2", "3-5", "6+"];
+  const goalOptions: ("Lose Weight" | "Maintain Weight" | "Gain Weight")[] = [
+    "Lose Weight",
+    "Maintain Weight",
+    "Gain Weight",
+  ];
+  const GenderOptions: ("Male" | "Female" | "Other")[] = [
+    "Male",
+    "Female",
+    "Other",
+  ];
 
   const next = () => setStep((s) => Math.min(s + 1, 6));
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
   React.useEffect(() => {
-    if (user) {
-      user.reload();
+    if (!isLoaded) return;
+
+    if (!isSignedIn || !user) {
+      router.replace("/(auth)/welcome-screen");
+      return;
     }
-  }, [user]);
+
+    if (user?.publicMetadata?.hasCompletedOnboarding) {
+      router.replace("/(home)/home");
+    }
+  }, [isLoaded, isSignedIn, user]);
 
   if (!isSignedIn || !user) return <Redirect href="/welcome-screen" />;
 
-  if (user.publicMetadata.hasCompletedOnboarding){
-    router.replace('/(home)/home')
-  }
+  const Submit = async () => {
+    await addConvexUser({
+      userId: user.id,
+      age: Number(form.metrics.age),
+      desiredWeightKg: Number(form.desiredWeight),
+      gender: form.gender,
+      goal: form.goal,
+      heightCm: Number(form.metrics.height),
+      lossPerWeek: Number(form.fast),
+      weightKg: Number(form.metrics.weight),
+      workoutsPerWeek: form.workouts,
+    });
+
+    console.log("User added to convex database succsesfully");
+
+    try {
+      const json = {
+        id: user.id,
+      };
+
+      const response = await axios.post(
+        "https://aerological-cathleen-eximiously.ngrok-free.dev/clerk/update/metadata/completedonboarding",
+        json,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+      console.log("Response:", response.data);
+      console.log("api sent");
+      router.push("/(home)/home");
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
 
   if (!isLoaded) return <Text>Loading...</Text>;
-  
+
   return (
     <>
       {step === 0 && (
         <Gender
-        gender={form.gender}
-        genderOption={GenderOptions as ("Male" | "Female" | "Other")[]}
-        onChange={(value) => setForm({ ...form, gender: value })}
-        onNext={next}
+          gender={form.gender}
+          genderOption={GenderOptions as ("Male" | "Female" | "Other")[]}
+          onChange={(value) => setForm({ ...form, gender: value })}
+          onNext={next}
         />
       )}
 
@@ -68,7 +120,7 @@ const Onboarding = () => {
         <Workouts
           workouts={form.workouts}
           workoutOptions={workoutOptions as ("0-2" | "3-5" | "6+")[]}
-          onChange={(value) => setForm({ ...form, workouts: value})}
+          onChange={(value) => setForm({ ...form, workouts: value })}
           onNext={next}
           onBack={back}
         />
@@ -79,7 +131,9 @@ const Onboarding = () => {
           height={form.metrics.height}
           weight={form.metrics.weight}
           age={form.metrics.age}
-          onChange={(field, value) => {setForm({ ...form, metrics: { ...form.metrics, [field]: value,}})}}
+          onChange={(field, value) => {
+            setForm({ ...form, metrics: { ...form.metrics, [field]: value } });
+          }}
           onNext={next}
           onBack={back}
         />
@@ -88,8 +142,10 @@ const Onboarding = () => {
       {step === 3 && (
         <Goal
           goal={form.goal}
-          goalOptions={goalOptions as ("Lose Weight" | "Maintain Weight" | "Gain Weight")[]}
-          onChange={(value) => setForm({ ...form, goal: value})}
+          goalOptions={
+            goalOptions as ("Lose Weight" | "Maintain Weight" | "Gain Weight")[]
+          }
+          onChange={(value) => setForm({ ...form, goal: value })}
           onNext={next}
           onBack={back}
         />
@@ -99,7 +155,7 @@ const Onboarding = () => {
         <Desired
           desiredWeight={form.desiredWeight}
           goal={form.goal}
-          onChange={(value) => setForm({ ...form, desiredWeight: value})}
+          onChange={(value) => setForm({ ...form, desiredWeight: value })}
           onNext={next}
           onBack={back}
         />
@@ -119,7 +175,7 @@ const Onboarding = () => {
           goal={form.goal}
           fast={form.fast}
           onChange={(value) => setForm({ ...form, fast: value })}
-          onNext={next}
+          onNext={Submit}
           onBack={back}
         />
       )}
@@ -127,4 +183,4 @@ const Onboarding = () => {
   );
 };
 
-export default Onboarding
+export default Onboarding;
