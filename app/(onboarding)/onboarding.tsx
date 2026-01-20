@@ -60,7 +60,7 @@ const Onboarding = () => {
     }
 
     if (user?.publicMetadata?.hasCompletedOnboarding) {
-      router.replace("/(home)/home");
+      router.replace("/(home)/(tabs)/home");
     }
   }, [isLoaded, isSignedIn, user]);
 
@@ -97,7 +97,7 @@ const Onboarding = () => {
       );
       console.log("Response:", response.data);
       console.log("api sent");
-      router.push("/(home)/home");
+      router.push("/(home)/(tabs)/home");
     } catch (error) {
       console.log("Error", error);
     }
