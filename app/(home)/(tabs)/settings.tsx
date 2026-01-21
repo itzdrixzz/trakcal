@@ -1,12 +1,40 @@
-import { useUser } from "@clerk/clerk-expo";
+import { useClerk, useUser } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { useRouter } from "expo-router";
 import React from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Settings = () => {
   const { user } = useUser();
+  const { signOut } = useClerk();
+  const router = useRouter();
+
+  const signOutAlert = async () => {
+    Alert.alert("Logout", "Are you sure you want to Logout?", [
+      { text: "Logout", style: "destructive", onPress: () => handleSignOut() },
+      { text: "Cancel", style: "default" },
+    ]);
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      // Redirect to your desired page
+      router.replace("/(auth)/sign-in");
+    } catch (err) {
+      // See https://clerk.com/docs/guides/development/custom-flows/error-handling
+      // for more info on error handling
+      console.error(JSON.stringify(err, null, 2));
+    }
+  };
 
   return (
     <SafeAreaView className="bg-[#ffffff] flex-1">
@@ -14,7 +42,7 @@ const Settings = () => {
         <Text className="text-4xl font-bold mx-[20px] mt-[10px] mb-[20px]">
           Profile
         </Text>
-        <TouchableOpacity onPress={() => router.push("/(home)/(tabs)/home")}>
+        <TouchableOpacity onPress={() => router.push("/(home)/edit_profile")}>
           <View className="bg-[#ffffff] border-[1px] border-[#eaeced] flex-row mx-[20px] rounded-3xl">
             <Image
               source={{ uri: user?.imageUrl }}
@@ -38,7 +66,10 @@ const Settings = () => {
         <View className="mx-[20px] mt-[30px] flex-1">
           <Text className="text-lg font-semibold text-[#7b7b7c]">Account</Text>
           <View className=" border-[1px] border-[#eaeced] mt-[10px] rounded-xl">
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(home)/personal")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"
@@ -57,12 +88,18 @@ const Settings = () => {
               />
             </View>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(home)/prefrences")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <Ionicons name="cog-outline" size={28}></Ionicons>
               <Text className="pl-[10px] font-semibold">Prefrences</Text>
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(home)/language")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"
@@ -186,7 +223,10 @@ const Settings = () => {
             Follow Me
           </Text>
           <View className=" border-[1px] border-[#eaeced] mt-[10px] rounded-xl">
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("https://github.com/itzdrixzz")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"
@@ -210,7 +250,10 @@ const Settings = () => {
               </View>
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("https://www.youtube.com/@DrixzzLabs")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <Ionicons name="logo-youtube" size={28}></Ionicons>
               <Text className="pl-[10px] font-semibold">Youtube</Text>
               <View className="absolute right-[20px] inset-y-0 justify-center">
@@ -226,7 +269,10 @@ const Settings = () => {
             Account Actions
           </Text>
           <View className=" border-[1px] border-[#eaeced] mt-[10px] rounded-xl">
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={signOutAlert}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"
