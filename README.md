@@ -19,7 +19,7 @@ Trakcal is built using:
 
 ---
 
-## Installation Guide
+## Installation Guide - Outdated (soon to be updated)
 
 First, install the dependencies:
 
