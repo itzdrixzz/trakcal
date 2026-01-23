@@ -135,7 +135,10 @@ const Settings = () => {
               </View>
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(home)/personal")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"
@@ -163,7 +166,10 @@ const Settings = () => {
               </Text>
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(home)/reminders")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"
@@ -193,7 +199,10 @@ const Settings = () => {
               <Text className="pl-[10px] font-semibold">Support Email</Text>
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(legal)/terms")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <Ionicons name="document-text-outline" size={28}></Ionicons>
               <Text className="pl-[10px] font-semibold">
                 Terms and Conditions
@@ -207,7 +216,10 @@ const Settings = () => {
               </View>
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(legal)/privacypolicy")}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"

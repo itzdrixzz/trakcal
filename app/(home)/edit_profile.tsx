@@ -39,7 +39,7 @@ const EditProfile = () => {
           <Text className="mt-[10px] text-sm font-normal">Change Photo</Text>
         </View>
         <View className=" mx-[15px] mt-[15px]">
-          <View className=" border-[1px] rounded-lg h-[70px] mb-[10px]">
+          <View className=" border-[1px] border-[#eaeced] rounded-lg h-[70px] mb-[10px]">
             <Text className=" text-sm font-medium px-[10px] pt-[10px]">
               First Name
             </Text>
@@ -48,7 +48,7 @@ const EditProfile = () => {
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
-          <View className=" border-[1px] rounded-lg h-[70px] mb-[10px]">
+          <View className=" border-[1px] border-[#eaeced] rounded-lg h-[70px] mb-[10px]">
             <Text className=" text-sm font-medium px-[10px] pt-[10px]">
               Last Name
             </Text>
@@ -57,7 +57,7 @@ const EditProfile = () => {
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
-          <View className=" border-[1px] rounded-lg h-[70px]">
+          <View className=" border-[1px] border-[#eaeced] rounded-lg h-[70px]">
             <Text className=" text-sm font-medium px-[10px] pt-[10px]">
               Username
             </Text>

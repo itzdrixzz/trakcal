@@ -15,10 +15,10 @@ const Personal = () => {
             </View>
           </TouchableOpacity>
           <Text className="text-xl font-semibold text-center absolute left-1/2 -translate-x-1/2">
-            Edit Profile
+            Personal Details
           </Text>
         </View>
-        <View className=" mx-[30px] mt-[40px] flex-row rounded-lg border-[1px] h-[70px]">
+        <View className=" mx-[30px] mt-[40px] flex-row rounded-lg border-[1px] border-[#eaeced] h-[70px]">
           <View className=" ml-[10px] justify-center w-[200px]">
             <Text className="text-lg font-medium">Goal Weight</Text>
             <Text className="font-bold text-lg">200 kg</Text>
@@ -29,7 +29,7 @@ const Personal = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <View className=" mx-[30px]  mt-[20px] rounded-lg border-[1px]">
+        <View className=" mx-[30px]  mt-[20px] rounded-lg border-[1px] border-[#eaeced]">
           <TouchableOpacity className="ml-[20px] my-[15px] flex-row">
             <Text className="font-medium">Current Weight</Text>
             <View className="flex-row absolute right-[20px]">
