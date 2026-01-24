@@ -1,9 +1,9 @@
 import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { router } from "expo-router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,6 +12,40 @@ const EditProfile = () => {
   const { user, isLoaded, isSignedIn } = useUser();
   const { t } = useTranslation();
 
+  const convexUser = useQuery(
+    api.functions.user.getUser,
+    user ? { userId: user?.id } : "skip",
+  );
+
+  const updateProfile = useMutation(api.functions.user.updateProfile);
+
+  const [firstName, setFirstName] = useState<string>(
+    convexUser?.firstName || "",
+  );
+  const [lastName, setLastName] = useState<string>(convexUser?.lastName || "");
+  const [username, setUsername] = useState<string>(convexUser?.username || "");
+
+  const handleSubmit = async () => {
+    if (!convexUser?.userId) {
+      console.error("No user ID available");
+      return;
+    }
+
+    const userId = convexUser?.userId;
+
+    try {
+      const updatedUserProfile = await updateProfile({
+        userId,
+        firstName,
+        lastName,
+        username,
+      });
+      console.log("Profile Updated");
+    } catch (error) {
+      console.error("Failed to update profile:", error);
+    }
+  };
+
   useEffect(() => {
     if (!isLoaded) return;
 
@@ -19,11 +53,6 @@ const EditProfile = () => {
       router.replace("/(auth)/welcome-screen");
     }
   }, [isLoaded, isSignedIn, user]);
-
-  const convexUser = useQuery(
-    api.functions.user.getUser,
-    user ? { userId: user?.id } : "skip",
-  );
 
   return (
     <SafeAreaView className=" h-full flex-1">
@@ -53,7 +82,8 @@ const EditProfile = () => {
               {t("settingsPage.editProfilePage.firstNameTextInputText")}
             </Text>
             <TextInput
-              placeholder={convexUser?.firstName}
+              value={firstName}
+              onChangeText={setFirstName}
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
@@ -62,7 +92,8 @@ const EditProfile = () => {
               {t("settingsPage.editProfilePage.lastNameTextInputText")}
             </Text>
             <TextInput
-              placeholder={convexUser?.lastName}
+              value={lastName}
+              onChangeText={setLastName}
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
@@ -71,14 +102,18 @@ const EditProfile = () => {
               {t("settingsPage.editProfilePage.usernameTextInputText")}
             </Text>
             <TextInput
-              placeholder={convexUser?.username}
+              value={username}
+              onChangeText={setUsername}
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
         </View>
       </View>
       <View className="absolute bottom-[50px] inset-x-0">
-        <TouchableOpacity className="py-[18px] rounded-full items-center mx-[20px] bg-[#000000]">
+        <TouchableOpacity
+          onPress={handleSubmit}
+          className="py-[18px] rounded-full items-center mx-[20px] bg-[#000000]"
+        >
           <Text className="text-[#ffffff] text-xl font-medium">
             {t("settingsPage.editProfilePage.continueButton")}
           </Text>

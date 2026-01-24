@@ -11,6 +11,38 @@ export const getUser = query({
   },
 });
 
+export const updateProfile = mutation(
+  async (
+    ctx,
+    {
+      userId,
+      firstName,
+      lastName,
+      username,
+    }: {
+      userId: string;
+      firstName: string;
+      lastName: string;
+      username: string;
+    },
+  ) => {
+    const user = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+
+    if (user.length === 0) {
+      throw new Error("User not found");
+    }
+
+    const docId = user[0]._id;
+
+    await ctx.db.patch(docId, { firstName, lastName, username });
+
+    return null;
+  },
+);
+
 export const addUser = mutation({
   args: {
     userId: v.string(),
