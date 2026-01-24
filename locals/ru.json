@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "Главная",
+    "settings": "Настройки"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "Профиль",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "Редактировать профиль",
+
+      "firstNameTextInputText": "Имя",
+      "lastNameTextInputText": "Фамилия",
+      "usernameTextInputText": "Имя пользователя",
+
+      "continueButton": "Продолжить"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "Аккаунт",
+
+      "personalDetailsButton": "Личные данные",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "Личные данные",
+
+        "goalWeightText": "Целевой вес",
+        "changeGoalButton": "Изменить цель",
+
+        "currentWeightText": "Текущий вес",
+        "heightText": "Рост",
+        "ageText": "Возраст",
+        "genderText": "Пол",
+        "dailyStepGoal": "Ежедневная цель по шагам"
+      },
+
+      "prefrencesButton": "Предпочтения",
+      "prefrencesPage": {},
+
+      "langaugeButton": "Язык",
+      "languagePage": {
+        "languageHeaderText": "Выберите язык"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "Цели и отслеживание",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "Цели питания",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "Цели и текущий вес",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "Объяснение цветов колец",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "Напоминания об отслеживании",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "Напоминания",
+        "notificationsDisabledText": "Уведомления в настоящее время отключены для Trakcal. Чтобы включить их, перейдите в системные настройки.",
+        "openSettingsButton": "Открыть настройки",
+        "trackingRemindersHeaderText": "Напоминания об отслеживании",
+        "breakfastText": "Завтрак",
+        "lunchText": "Обед",
+        "snackText": "Перекус",
+        "DinerText": "Ужин"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "Поддержка и юридическая информация",
+      "supportEmailButton": "Электронная почта поддержки",
+      "termsAndConditionsButton": "Условия использования",
+      "privacyPolicyButton": "Политика конфиденциальности"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "Подписывайтесь",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "Действия с аккаунтом",
+      "logoutButton": "Выйти",
+      "deleteAccountButton": "Удалить аккаунт"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "Home",
+    "settings": "Settings"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "Profile",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "Edit Profile",
+
+      "firstNameTextInputText": "First Name",
+      "lastNameTextInputText": "Last Name",
+      "usernameTextInputText": "Username",
+
+      "continueButton": "Continue"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "Account",
+
+      "personalDetailsButton": "Personal Details",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "Personal Details",
+
+        "goalWeightText": "Goal Weight",
+        "changeGoalButton": "Change Goal",
+
+        "currentWeightText": "Current Weight",
+        "heightText": "Height",
+        "ageText": "Age",
+        "genderText": "Gender",
+        "dailyStepGoal": "Daily Step Goal"
+      },
+
+      "prefrencesButton": "Prefrences",
+      "prefrencesPage": {},
+
+      "langaugeButton": "Language",
+      "languagePage": {
+        "languageHeaderText": "Select Langauge"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "Goals & Tracking",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "Nutrition Goals",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "Goals & Current Weight",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "Ring Colors Explained",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "Tracking Reminders",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "Reminders",
+        "notificationsDisabledText": "Notifications are currently disabled for Trakcal. To enable, please go to system settings.",
+        "openSettingsButton": "Open Settings",
+        "trackingRemindersHeaderText": "Tracking Reminders",
+        "breakfastText": "Breakfast",
+        "lunchText": "Lunch",
+        "snackText": "Snack",
+        "DinerText": "Dinner"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "Support & Legal",
+      "supportEmailButton": "Support Email",
+      "termsAndConditionsButton": "Terms and Conditions",
+      "privacyPolicyButton": "Privacy Policy"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "Follow Me",
+      "githubButton": "Github",
+      "discordButton": "Discord",
+      "youtubeButton": "Youtube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "Account Actions",
+      "logoutButton": "Logout",
+      "deleteAccountButton": "Delete Account"
+    }
+  }
+}

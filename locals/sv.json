@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "Hem",
+    "settings": "Inställningar"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "Profil",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "Redigera profil",
+
+      "firstNameTextInputText": "Förnamn",
+      "lastNameTextInputText": "Efternamn",
+      "usernameTextInputText": "Användarnamn",
+
+      "continueButton": "Fortsätt"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "Konto",
+
+      "personalDetailsButton": "Personuppgifter",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "Personuppgifter",
+
+        "goalWeightText": "Målvikt",
+        "changeGoalButton": "Ändra mål",
+
+        "currentWeightText": "Nuvarande vikt",
+        "heightText": "Längd",
+        "ageText": "Ålder",
+        "genderText": "Kön",
+        "dailyStepGoal": "Dagligt stegmål"
+      },
+
+      "prefrencesButton": "Inställningar",
+      "prefrencesPage": {},
+
+      "langaugeButton": "Språk",
+      "languagePage": {
+        "languageHeaderText": "Välj språk"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "Mål och spårning",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "Näringsmål",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "Mål och nuvarande vikt",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "Förklaring av ringfärger",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "Spårningspåminnelser",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "Påminnelser",
+        "notificationsDisabledText": "Aviseringar är för närvarande inaktiverade för Trakcal. För att aktivera dem, gå till systeminställningarna.",
+        "openSettingsButton": "Öppna inställningar",
+        "trackingRemindersHeaderText": "Spårningspåminnelser",
+        "breakfastText": "Frukost",
+        "lunchText": "Lunch",
+        "snackText": "Mellanmål",
+        "DinerText": "Middag"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "Support och juridiskt",
+      "supportEmailButton": "Support-e-post",
+      "termsAndConditionsButton": "Villkor",
+      "privacyPolicyButton": "Integritetspolicy"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "Följ mig",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "Kontoåtgärder",
+      "logoutButton": "Logga ut",
+      "deleteAccountButton": "Ta bort konto"
+    }
+  }
+}

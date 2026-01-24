@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "होम",
+    "settings": "सेटिंग्स"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "प्रोफ़ाइल",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "प्रोफ़ाइल संपादित करें",
+
+      "firstNameTextInputText": "पहला नाम",
+      "lastNameTextInputText": "अंतिम नाम",
+      "usernameTextInputText": "उपयोगकर्ता नाम",
+
+      "continueButton": "जारी रखें"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "खाता",
+
+      "personalDetailsButton": "व्यक्तिगत विवरण",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "व्यक्तिगत विवरण",
+
+        "goalWeightText": "लक्ष्य वजन",
+        "changeGoalButton": "लक्ष्य बदलें",
+
+        "currentWeightText": "वर्तमान वजन",
+        "heightText": "ऊँचाई",
+        "ageText": "आयु",
+        "genderText": "लिंग",
+        "dailyStepGoal": "दैनिक कदम लक्ष्य"
+      },
+
+      "prefrencesButton": "प्राथमिकताएँ",
+      "prefrencesPage": {},
+
+      "langaugeButton": "भाषा",
+      "languagePage": {
+        "languageHeaderText": "भाषा चुनें"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "लक्ष्य और ट्रैकिंग",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "पोषण लक्ष्य",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "लक्ष्य और वर्तमान वजन",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "रिंग के रंगों की व्याख्या",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "ट्रैकिंग रिमाइंडर",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "रिमाइंडर",
+        "notificationsDisabledText": "Trakcal के लिए सूचनाएँ वर्तमान में अक्षम हैं। सक्षम करने के लिए कृपया सिस्टम सेटिंग्स पर जाएँ।",
+        "openSettingsButton": "सेटिंग्स खोलें",
+        "trackingRemindersHeaderText": "ट्रैकिंग रिमाइंडर",
+        "breakfastText": "नाश्ता",
+        "lunchText": "दोपहर का भोजन",
+        "snackText": "स्नैक",
+        "DinerText": "रात का खाना"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "सहायता और कानूनी",
+      "supportEmailButton": "सहायता ईमेल",
+      "termsAndConditionsButton": "नियम और शर्तें",
+      "privacyPolicyButton": "गोपनीयता नीति"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "मुझे फ़ॉलो करें",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "खाता क्रियाएँ",
+      "logoutButton": "लॉग आउट",
+      "deleteAccountButton": "खाता हटाएँ"
+    }
+  }
+}

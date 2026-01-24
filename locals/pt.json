@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "Início",
+    "settings": "Configurações"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "Perfil",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "Editar perfil",
+
+      "firstNameTextInputText": "Nome",
+      "lastNameTextInputText": "Sobrenome",
+      "usernameTextInputText": "Nome de usuário",
+
+      "continueButton": "Continuar"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "Conta",
+
+      "personalDetailsButton": "Dados pessoais",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "Dados pessoais",
+
+        "goalWeightText": "Peso alvo",
+        "changeGoalButton": "Alterar meta",
+
+        "currentWeightText": "Peso atual",
+        "heightText": "Altura",
+        "ageText": "Idade",
+        "genderText": "Gênero",
+        "dailyStepGoal": "Meta diária de passos"
+      },
+
+      "prefrencesButton": "Preferências",
+      "prefrencesPage": {},
+
+      "langaugeButton": "Idioma",
+      "languagePage": {
+        "languageHeaderText": "Selecionar idioma"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "Metas e acompanhamento",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "Metas nutricionais",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "Metas e peso atual",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "Cores dos anéis explicadas",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "Lembretes de acompanhamento",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "Lembretes",
+        "notificationsDisabledText": "As notificações estão desativadas no momento para o Trakcal. Para ativá-las, vá até as configurações do sistema.",
+        "openSettingsButton": "Abrir configurações",
+        "trackingRemindersHeaderText": "Lembretes de acompanhamento",
+        "breakfastText": "Café da manhã",
+        "lunchText": "Almoço",
+        "snackText": "Lanche",
+        "DinerText": "Jantar"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "Suporte e jurídico",
+      "supportEmailButton": "E-mail de suporte",
+      "termsAndConditionsButton": "Termos e condições",
+      "privacyPolicyButton": "Política de privacidade"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "Siga-me",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "Ações da conta",
+      "logoutButton": "Sair",
+      "deleteAccountButton": "Excluir conta"
+    }
+  }
+}

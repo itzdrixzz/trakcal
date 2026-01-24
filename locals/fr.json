@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "Accueil",
+    "settings": "Paramètres"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "Profil",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "Modifier le profil",
+
+      "firstNameTextInputText": "Prénom",
+      "lastNameTextInputText": "Nom",
+      "usernameTextInputText": "Nom d’utilisateur",
+
+      "continueButton": "Continuer"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "Compte",
+
+      "personalDetailsButton": "Informations personnelles",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "Informations personnelles",
+
+        "goalWeightText": "Poids cible",
+        "changeGoalButton": "Modifier l’objectif",
+
+        "currentWeightText": "Poids actuel",
+        "heightText": "Taille",
+        "ageText": "Âge",
+        "genderText": "Genre",
+        "dailyStepGoal": "Objectif quotidien de pas"
+      },
+
+      "prefrencesButton": "Préférences",
+      "prefrencesPage": {},
+
+      "langaugeButton": "Langue",
+      "languagePage": {
+        "languageHeaderText": "Sélectionner la langue"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "Objectifs et suivi",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "Objectifs nutritionnels",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "Objectifs et poids actuel",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "Explication des couleurs des anneaux",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "Rappels de suivi",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "Rappels",
+        "notificationsDisabledText": "Les notifications sont actuellement désactivées pour Trakcal. Pour les activer, veuillez accéder aux paramètres du système.",
+        "openSettingsButton": "Ouvrir les paramètres",
+        "trackingRemindersHeaderText": "Rappels de suivi",
+        "breakfastText": "Petit-déjeuner",
+        "lunchText": "Déjeuner",
+        "snackText": "Collation",
+        "DinerText": "Dîner"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "Support et mentions légales",
+      "supportEmailButton": "E-mail du support",
+      "termsAndConditionsButton": "Conditions générales",
+      "privacyPolicyButton": "Politique de confidentialité"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "Suivez-moi",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "Actions du compte",
+      "logoutButton": "Se déconnecter",
+      "deleteAccountButton": "Supprimer le compte"
+    }
+  }
+}

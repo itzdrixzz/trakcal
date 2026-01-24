@@ -12,5 +12,9 @@ export default defineSchema({
     goal: v.optional(v.string()),
     desiredWeightKg: v.optional(v.number()),
     lossPerWeek: v.optional(v.float64()),
+    firstName: v.optional(v.string()),
+    lastName: v.optional(v.string()),
+    username: v.optional(v.string()),
+    steps: v.optional(v.number()),
   }).index("by_userId", ["userId"]),
 });

@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "首页",
+    "settings": "设置"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "个人资料",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "编辑个人资料",
+
+      "firstNameTextInputText": "名",
+      "lastNameTextInputText": "姓",
+      "usernameTextInputText": "用户名",
+
+      "continueButton": "继续"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "账户",
+
+      "personalDetailsButton": "个人信息",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "个人信息",
+
+        "goalWeightText": "目标体重",
+        "changeGoalButton": "更改目标",
+
+        "currentWeightText": "当前体重",
+        "heightText": "身高",
+        "ageText": "年龄",
+        "genderText": "性别",
+        "dailyStepGoal": "每日步数目标"
+      },
+
+      "prefrencesButton": "偏好设置",
+      "prefrencesPage": {},
+
+      "langaugeButton": "语言",
+      "languagePage": {
+        "languageHeaderText": "选择语言"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "目标与追踪",
+
+      "appleHealthButton": "Apple 健康",
+
+      "nutritionGoalsButton": "营养目标",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "目标与当前体重",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "圆环颜色说明",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "追踪提醒",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "提醒",
+        "notificationsDisabledText": "Trakcal 的通知目前已被禁用。如需启用，请前往系统设置。",
+        "openSettingsButton": "打开设置",
+        "trackingRemindersHeaderText": "追踪提醒",
+        "breakfastText": "早餐",
+        "lunchText": "午餐",
+        "snackText": "加餐",
+        "DinerText": "晚餐"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "支持与法律",
+      "supportEmailButton": "支持邮箱",
+      "termsAndConditionsButton": "条款和条件",
+      "privacyPolicyButton": "隐私政策"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "关注我",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "账户操作",
+      "logoutButton": "退出登录",
+      "deleteAccountButton": "删除账户"
+    }
+  }
+}

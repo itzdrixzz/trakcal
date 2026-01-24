@@ -1,12 +1,16 @@
+import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
+import { useQuery } from "convex/react";
 import { router } from "expo-router";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const EditProfile = () => {
   const { user, isLoaded, isSignedIn } = useUser();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -15,6 +19,11 @@ const EditProfile = () => {
       router.replace("/(auth)/welcome-screen");
     }
   }, [isLoaded, isSignedIn, user]);
+
+  const convexUser = useQuery(
+    api.functions.user.getUser,
+    user ? { userId: user?.id } : "skip",
+  );
 
   return (
     <SafeAreaView className=" h-full flex-1">
@@ -26,7 +35,7 @@ const EditProfile = () => {
             </View>
           </TouchableOpacity>
           <Text className="text-xl font-semibold text-center absolute left-1/2 -translate-x-1/2">
-            Edit Profile
+            {t("settingsPage.editProfilePage.editProfileHeaderText")}
           </Text>
         </View>
         <View className=" mx-[20px] items-center justify-center mt-[30px]">
@@ -41,28 +50,28 @@ const EditProfile = () => {
         <View className=" mx-[15px] mt-[15px]">
           <View className=" border-[1px] border-[#eaeced] rounded-lg h-[70px] mb-[10px]">
             <Text className=" text-sm font-medium px-[10px] pt-[10px]">
-              First Name
+              {t("settingsPage.editProfilePage.firstNameTextInputText")}
             </Text>
             <TextInput
-              placeholder={user?.firstName ?? ""}
+              placeholder={convexUser?.firstName}
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
           <View className=" border-[1px] border-[#eaeced] rounded-lg h-[70px] mb-[10px]">
             <Text className=" text-sm font-medium px-[10px] pt-[10px]">
-              Last Name
+              {t("settingsPage.editProfilePage.lastNameTextInputText")}
             </Text>
             <TextInput
-              placeholder={user?.lastName ?? ""}
+              placeholder={convexUser?.lastName}
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
           <View className=" border-[1px] border-[#eaeced] rounded-lg h-[70px]">
             <Text className=" text-sm font-medium px-[10px] pt-[10px]">
-              Username
+              {t("settingsPage.editProfilePage.usernameTextInputText")}
             </Text>
             <TextInput
-              placeholder={user?.username ?? ""}
+              placeholder={convexUser?.username}
               className=" mx-[10px] h-[40px] text-neutral-950"
             ></TextInput>
           </View>
@@ -70,7 +79,9 @@ const EditProfile = () => {
       </View>
       <View className="absolute bottom-[50px] inset-x-0">
         <TouchableOpacity className="py-[18px] rounded-full items-center mx-[20px] bg-[#000000]">
-          <Text className="text-[#ffffff] text-xl font-medium">Continue</Text>
+          <Text className="text-[#ffffff] text-xl font-medium">
+            {t("settingsPage.editProfilePage.continueButton")}
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

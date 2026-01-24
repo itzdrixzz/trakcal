@@ -77,6 +77,10 @@ const Onboarding = () => {
       lossPerWeek: Number(form.fast),
       weightKg: Number(form.metrics.weight),
       workoutsPerWeek: form.workouts,
+      firstName: user.firstName ?? "",
+      lastName: user.lastName ?? "",
+      username: user.username ?? "",
+      steps: 10000,
     });
 
     console.log("User added to convex database succsesfully");

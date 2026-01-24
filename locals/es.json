@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "Inicio",
+    "settings": "Configuración"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "Perfil",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "Editar perfil",
+
+      "firstNameTextInputText": "Nombre",
+      "lastNameTextInputText": "Apellido",
+      "usernameTextInputText": "Nombre de usuario",
+
+      "continueButton": "Continuar"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "Cuenta",
+
+      "personalDetailsButton": "Datos personales",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "Datos personales",
+
+        "goalWeightText": "Peso objetivo",
+        "changeGoalButton": "Cambiar objetivo",
+
+        "currentWeightText": "Peso actual",
+        "heightText": "Altura",
+        "ageText": "Edad",
+        "genderText": "Género",
+        "dailyStepGoal": "Objetivo diario de pasos"
+      },
+
+      "prefrencesButton": "Preferencias",
+      "prefrencesPage": {},
+
+      "langaugeButton": "Idioma",
+      "languagePage": {
+        "languageHeaderText": "Seleccionar idioma"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "Objetivos y seguimiento",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "Objetivos nutricionales",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "Objetivos y peso actual",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "Colores de los anillos explicados",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "Recordatorios de seguimiento",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "Recordatorios",
+        "notificationsDisabledText": "Las notificaciones están desactivadas actualmente para Trakcal. Para activarlas, ve a la configuración del sistema.",
+        "openSettingsButton": "Abrir configuración",
+        "trackingRemindersHeaderText": "Recordatorios de seguimiento",
+        "breakfastText": "Desayuno",
+        "lunchText": "Almuerzo",
+        "snackText": "Snack",
+        "DinerText": "Cena"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "Soporte y legal",
+      "supportEmailButton": "Correo de soporte",
+      "termsAndConditionsButton": "Términos y condiciones",
+      "privacyPolicyButton": "Política de privacidad"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "Sígueme",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "Acciones de cuenta",
+      "logoutButton": "Cerrar sesión",
+      "deleteAccountButton": "Eliminar cuenta"
+    }
+  }
+}

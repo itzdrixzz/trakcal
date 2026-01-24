@@ -1,0 +1,93 @@
+{
+  "tabs": {
+    "home": "Home",
+    "settings": "Instellingen"
+  },
+
+  "settingsPage": {
+    "profileHeaderText": "Profiel",
+
+    "editProfilePage": {
+      "editProfileHeaderText": "Profiel bewerken",
+
+      "firstNameTextInputText": "Voornaam",
+      "lastNameTextInputText": "Achternaam",
+      "usernameTextInputText": "Gebruikersnaam",
+
+      "continueButton": "Doorgaan"
+    },
+
+    "accountSection": {
+      "accountHeaderText": "Account",
+
+      "personalDetailsButton": "Persoonlijke gegevens",
+      "personalDetailsPage": {
+        "personalDetailsHeaderText": "Persoonlijke gegevens",
+
+        "goalWeightText": "Streefgewicht",
+        "changeGoalButton": "Doel wijzigen",
+
+        "currentWeightText": "Huidig gewicht",
+        "heightText": "Lengte",
+        "ageText": "Leeftijd",
+        "genderText": "Geslacht",
+        "dailyStepGoal": "Dagelijks stappendoel"
+      },
+
+      "prefrencesButton": "Voorkeuren",
+      "prefrencesPage": {},
+
+      "langaugeButton": "Taal",
+      "languagePage": {
+        "languageHeaderText": "Selecteer taal"
+      }
+    },
+
+    "goalsAndTrackingSection": {
+      "goalsAndTrackingHeaderText": "Doelen en tracking",
+
+      "appleHealthButton": "Apple Health",
+
+      "nutritionGoalsButton": "Voedingsdoelen",
+      "nutritionGoalsPage": {},
+
+      "goalsAndCurrentWeightButton": "Doelen en huidig gewicht",
+      "goalsAndCurrentWeightPage": {},
+
+      "ringColorsExplanedButton": "Uitleg ringkleuren",
+      "ringColorsExplanedPage": {},
+
+      "trackingRemindersButton": "Trackingherinneringen",
+      "trackingRemindersPage": {
+        "remindersHeaderText": "Herinneringen",
+        "notificationsDisabledText": "Meldingen zijn momenteel uitgeschakeld voor Trakcal. Ga naar de systeeminstellingen om ze in te schakelen.",
+        "openSettingsButton": "Instellingen openen",
+        "trackingRemindersHeaderText": "Trackingherinneringen",
+        "breakfastText": "Ontbijt",
+        "lunchText": "Lunch",
+        "snackText": "Snack",
+        "DinerText": "Diner"
+      }
+    },
+
+    "supportAndLegalSection": {
+      "supportAndLegalHeaderText": "Ondersteuning en juridisch",
+      "supportEmailButton": "Support e-mail",
+      "termsAndConditionsButton": "Algemene voorwaarden",
+      "privacyPolicyButton": "Privacybeleid"
+    },
+
+    "followMeSection": {
+      "followMeHeaderText": "Volg mij",
+      "githubButton": "GitHub",
+      "discordButton": "Discord",
+      "youtubeButton": "YouTube"
+    },
+
+    "accountActionsSection": {
+      "accountActionsHeaderText": "Accountacties",
+      "logoutButton": "Uitloggen",
+      "deleteAccountButton": "Account verwijderen"
+    }
+  }
+}
