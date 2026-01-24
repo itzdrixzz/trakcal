@@ -37,7 +37,9 @@ const Personal = () => {
                 "settingsPage.accountSection.personalDetailsPage.goalWeightText",
               )}
             </Text>
-            <Text className="font-bold text-lg">200 kg</Text>
+            <Text className="font-bold text-lg">
+              {convexUser?.desiredWeight} lb
+            </Text>
           </View>
           <View className=" justify-center absolute right-[10px] -inset-y-0">
             <TouchableOpacity className="bg-[#000000] rounded-full py-[5px] px-[10px]">
@@ -58,7 +60,7 @@ const Personal = () => {
             </Text>
             <View className="flex-row absolute right-[20px]">
               <Text className="mr-[10px] text-lg font-semibold">
-                {convexUser?.weightKg} kg
+                {convexUser?.weight} lb
               </Text>
               <Ionicons name="pencil-outline" size={18} />
             </View>

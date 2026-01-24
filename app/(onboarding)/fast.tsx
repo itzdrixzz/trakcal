@@ -6,8 +6,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 type fastProps = {
   goal: string;
-  fast: string;
-  onChange: (value: string) => void;
+  fast: number;
+  onChange: (value: number) => void;
   onNext: () => void;
   onBack: () => void;
 };
@@ -52,25 +52,25 @@ const Fast: React.FC<fastProps> = ({
             speed per week
           </Text>
           <Text className="text-4xl font-bold mb-[20px]">
-            {Math.floor(Number(fast) * 10) / 10} KG
+            {Number(fast)} LB
           </Text>
           <View className="w-full">
             <View className="px-[25px]">
               <Slider
-                minimumValue={0.1}
-                maximumValue={1.4}
-                step={0.1}
-                value={Number(fast) || 0.7}
-                onValueChange={(val) => onChange(val.toString())}
+                minimumValue={0.5}
+                maximumValue={2.5}
+                step={0.5}
+                value={Number(fast)}
+                onValueChange={(val) => onChange(val)}
                 minimumTrackTintColor="#000000"
                 maximumTrackTintColor="#dddddd"
                 thumbTintColor="#ffffff"
               />
             </View>
             <View className="flex-row px-[25px] items-center justify-center">
-              <Text className="text-xl">0.1 kg</Text>
-              <Text className="text-xl mx-[100px]">0.8 kg</Text>
-              <Text className="text-xl">1.3 kg</Text>
+              <Text className="text-xl">0.5 LB</Text>
+              <Text className="text-xl mx-[100px]">1.5 LB</Text>
+              <Text className="text-xl">2.5 LB</Text>
             </View>
           </View>
         </View>

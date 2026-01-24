@@ -5,9 +5,9 @@ import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 type desiredProps = {
-  desiredWeight: string;
+  desiredWeight: number;
   goal: string;
-  onChange: (value: string) => void;
+  onChange: (value: number) => void;
   onNext: () => void;
   onBack: () => void;
 };
@@ -51,7 +51,7 @@ const Desired: React.FC<desiredProps> = ({
                 : "Gain Weight"}
           </Text>
           <Text className="text-5xl font-bold mb-[20px]">
-            {desiredWeight} KG
+            {desiredWeight} LB
           </Text>
           <View className="w-full px-[25px]">
             <Slider
@@ -59,7 +59,7 @@ const Desired: React.FC<desiredProps> = ({
               maximumValue={300}
               step={1}
               value={Number(desiredWeight) || 150}
-              onValueChange={(val) => onChange(val.toString())}
+              onValueChange={(val) => onChange(val)}
               minimumTrackTintColor="#000000"
               maximumTrackTintColor="#dddddd"
               thumbTintColor="#ffffff"

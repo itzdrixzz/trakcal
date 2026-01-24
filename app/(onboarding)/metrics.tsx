@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 type metricsProps = {
   height: string;
-  weight: string;
+  weight: number;
   age: string;
   onChange: (field: "height" | "weight" | "age", value: string) => void;
   onNext: () => void;
@@ -70,11 +70,11 @@ const Metrics: React.FC<metricsProps> = ({
             placeholder="170 cm"
           ></TextInput>
           <TextInput
-            value={weight}
+            value={String(weight)}
             onChangeText={(value) => onChange("weight", value)}
             className="bg-[#ffffff] py-[20px] w-[180px] mb-[10px] rounded-xl border-[1px] pl-[20px]"
             placeholderTextColor="#c4c4c6"
-            placeholder="120 KG"
+            placeholder="120 LB"
           ></TextInput>
         </View>
       </View>

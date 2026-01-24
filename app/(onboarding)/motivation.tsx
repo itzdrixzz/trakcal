@@ -5,7 +5,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 type motivationProps = {
   goal: string;
-  desiredWeight: string;
+  weight: number;
+  desiredWeight: number;
   onNext: () => void;
   onBack: () => void;
 };
@@ -13,6 +14,7 @@ type motivationProps = {
 const Motivation: React.FC<motivationProps> = ({
   goal,
   desiredWeight,
+  weight,
   onNext,
   onBack,
 }) => {
@@ -40,8 +42,8 @@ const Motivation: React.FC<motivationProps> = ({
               : goal === "Maintain Weight"
                 ? "Maintaining"
                 : "Gaining"}{" "}
-            <Text className="text-[#de9a69]">{desiredWeight} kg</Text> is a
-            realistic {"\n"}target. it's not hard at {"\n"}all!
+            <Text className="text-[#de9a69]">{weight - desiredWeight} LB</Text>{" "}
+            is a realistic {"\n"}target. it's not hard at {"\n"}all!
           </Text>
           <Text className="text-center text-lg font-semibold">
             90% of users say that the change is {"\n"}obvious after using

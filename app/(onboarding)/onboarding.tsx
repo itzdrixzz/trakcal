@@ -23,15 +23,15 @@ const Onboarding = () => {
   const addConvexUser = useMutation(api.functions.user.addUser);
 
   const [form, setForm] = useState({
-    desiredWeight: "",
+    desiredWeight: 150,
     weightLosePerWeek: "",
     gender: "",
     goal: "",
-    fast: "",
+    fast: 1.5,
     workouts: "",
     metrics: {
       height: "",
-      weight: "",
+      weight: 0,
       age: "",
     },
   });
@@ -67,20 +67,35 @@ const Onboarding = () => {
   if (!isSignedIn || !user) return <Redirect href="/welcome-screen" />;
 
   const Submit = async () => {
+    const heightInches = Number(form.metrics.height) / 2.54;
+    const bmi = (form.metrics.weight / heightInches ** 2) * 703;
+    const bmr =
+      form.gender === "male"
+        ? 10 * (form.metrics.weight / 2.205) +
+          6.25 * Number(form.metrics.height) -
+          5 * Number(form.metrics.age) +
+          5
+        : 10 * (form.metrics.weight / 2.205) +
+          6.25 * Number(form.metrics.height) -
+          5 * Number(form.metrics.age) -
+          161;
+
     await addConvexUser({
       userId: user.id,
       age: Number(form.metrics.age),
-      desiredWeightKg: Number(form.desiredWeight),
+      desiredWeight: Number(form.desiredWeight),
       gender: form.gender,
       goal: form.goal,
       heightCm: Number(form.metrics.height),
       lossPerWeek: Number(form.fast),
-      weightKg: Number(form.metrics.weight),
+      weight: Number(form.metrics.weight),
       workoutsPerWeek: form.workouts,
       firstName: user.firstName ?? "",
       lastName: user.lastName ?? "",
       username: user.username ?? "",
       steps: 10000,
+      bmi: bmi,
+      bmr: bmr,
     });
 
     console.log("User added to convex database succsesfully");
@@ -169,6 +184,7 @@ const Onboarding = () => {
         <Motivation
           goal={form.goal}
           desiredWeight={form.desiredWeight}
+          weight={form.metrics.weight}
           onNext={next}
           onBack={back}
         />
