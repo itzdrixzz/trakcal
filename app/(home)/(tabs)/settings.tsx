@@ -51,7 +51,9 @@ const Settings = () => {
         <Text className="text-4xl font-bold mx-[20px] mt-[10px] mb-[20px]">
           {t("settingsPage.profileHeaderText")}
         </Text>
-        <TouchableOpacity onPress={() => router.push("/(home)/edit_profile")}>
+        <TouchableOpacity
+          onPress={() => router.push("/(home)/(edit_profile)/edit_profile")}
+        >
           <View className="bg-[#ffffff] border-[1px] border-[#eaeced] flex-row mx-[20px] rounded-3xl">
             <Image
               source={{ uri: user?.imageUrl }}
@@ -82,7 +84,7 @@ const Settings = () => {
           </Text>
           <View className=" border-[1px] border-[#eaeced] mt-[10px] rounded-xl">
             <TouchableOpacity
-              onPress={() => router.push("/(home)/personal")}
+              onPress={() => router.push("/(home)/(personal)/personal")}
               className="flex-row items-center ml-[20px] my-[10px]"
             >
               <View className="absolute right-[20px] inset-y-0 justify-center">
@@ -163,7 +165,7 @@ const Settings = () => {
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
             <TouchableOpacity
-              onPress={() => router.push("/(home)/personal")}
+              onPress={() => router.push("/(home)/(personal)/personal")}
               className="flex-row items-center ml-[20px] my-[10px]"
             >
               <View className="absolute right-[20px] inset-y-0 justify-center">

@@ -82,3 +82,108 @@ export const addUser = mutation({
     return user;
   },
 });
+
+export const changeUserWeightGoal = mutation(
+  async (
+    ctx,
+    { userId, desiredWeight }: { userId: string; desiredWeight: number },
+  ) => {
+    const user = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+
+    if (user.length === 0) {
+      throw new Error("User not found");
+    }
+    const docId = user[0]._id;
+
+    await ctx.db.patch(docId, { desiredWeight });
+  },
+);
+
+export const changeUserWeight = mutation(
+  async (
+    ctx,
+    {
+      userId,
+      weight,
+      bmi,
+      bmr,
+    }: { userId: string; weight: number; bmi: number; bmr: number },
+  ) => {
+    const user = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+    if (user.length === 0) {
+      return;
+    }
+    const docId = user[0]._id;
+
+    await ctx.db.patch(docId, { weight, bmi, bmr });
+  },
+);
+
+export const changeUserHeight = mutation(
+  async (
+    ctx,
+    {
+      userId,
+      heightCm,
+      bmi,
+      bmr,
+    }: { userId: string; heightCm: number; bmi: number; bmr: number },
+  ) => {
+    const user = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+    if (user.length === 0) return;
+    const docId = user[0]._id;
+    await ctx.db.patch(docId, { heightCm, bmi, bmr });
+  },
+);
+
+export const changeUserAge = mutation(
+  async (
+    ctx,
+    { userId, age, bmr }: { userId: string; age: number; bmr: number },
+  ) => {
+    const user = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+    if (user.length === 0) return;
+    const docId = user[0]._id;
+    await ctx.db.patch(docId, { age, bmr });
+  },
+);
+
+export const changeUserGender = mutation(
+  async (
+    ctx,
+    { userId, gender, bmr }: { userId: string; gender: string; bmr: number },
+  ) => {
+    const user = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+    if (user.length === 0) return;
+    const docId = user[0]._id;
+    await ctx.db.patch(docId, { gender, bmr });
+  },
+);
+
+export const changeUserStepGoal = mutation(
+  async (ctx, { userId, steps }: { userId: string; steps: number }) => {
+    const user = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+
+    const docId = user[0]._id;
+
+    await ctx.db.patch(docId, { steps });
+  },
+);

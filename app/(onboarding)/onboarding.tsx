@@ -70,12 +70,12 @@ const Onboarding = () => {
     const heightInches = Number(form.metrics.height) / 2.54;
     const bmi = (form.metrics.weight / heightInches ** 2) * 703;
     const bmr =
-      form.gender === "male"
-        ? 10 * (form.metrics.weight / 2.205) +
+      form.gender === "Male"
+        ? 10 * (form.metrics.weight / 2.20462) +
           6.25 * Number(form.metrics.height) -
           5 * Number(form.metrics.age) +
           5
-        : 10 * (form.metrics.weight / 2.205) +
+        : 10 * (form.metrics.weight / 2.20462) +
           6.25 * Number(form.metrics.height) -
           5 * Number(form.metrics.age) -
           161;

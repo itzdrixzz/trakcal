@@ -2,10 +2,18 @@ import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 import { useMutation, useQuery } from "convex/react";
+import * as ImagerPicker from "expo-image-picker";
 import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const EditProfile = () => {
@@ -54,6 +62,59 @@ const EditProfile = () => {
     }
   }, [isLoaded, isSignedIn, user]);
 
+  const uploadeProfilePhoto = async (base64Image: string) => {
+    try {
+      await user?.setProfileImage({
+        file: `data:image/jpeg;base64,${base64Image}`,
+      });
+      console.log("profile picture updated");
+    } catch (error) {
+      console.log("profile Picture failed to update", error);
+    }
+  };
+
+  const pickImage = async (fromCamera: boolean) => {
+    const permissionResult = fromCamera
+      ? await ImagerPicker.requestCameraPermissionsAsync()
+      : await ImagerPicker.requestMediaLibraryPermissionsAsync();
+
+    if (!permissionResult.granted) {
+      alert("Permission Required please enable permissions");
+      return;
+    }
+
+    const result = fromCamera
+      ? await ImagerPicker.launchCameraAsync({
+          mediaTypes: ["images"],
+          quality: 1,
+          base64: true,
+        })
+      : await ImagerPicker.launchImageLibraryAsync({
+          mediaTypes: ["images"],
+          quality: 1,
+          base64: true,
+        });
+
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      const asset = result.assets[0];
+      const base64 = asset.base64;
+
+      if (!base64) {
+        alert("Failed to read image");
+        return;
+      }
+      await uploadeProfilePhoto(base64);
+    }
+  };
+
+  const showPicker = () => {
+    Alert.alert("Choose Photo", "Select a option", [
+      { text: "Take Photo", onPress: () => pickImage(true) },
+      { text: "Choose from Camera Roll", onPress: () => pickImage(false) },
+      { text: "Cancel", style: "destructive" },
+    ]);
+  };
+
   return (
     <SafeAreaView className=" h-full flex-1">
       <View className="">
@@ -67,15 +128,17 @@ const EditProfile = () => {
             {t("settingsPage.editProfilePage.editProfileHeaderText")}
           </Text>
         </View>
-        <View className=" mx-[20px] items-center justify-center mt-[30px]">
-          <Image
-            source={{ uri: user?.imageUrl }}
-            width={100}
-            height={100}
-            className="rounded-full"
-          ></Image>
-          <Text className="mt-[10px] text-sm font-normal">Change Photo</Text>
-        </View>
+        <TouchableOpacity onPress={showPicker}>
+          <View className=" mx-[20px] items-center justify-center mt-[30px]">
+            <Image
+              source={{ uri: user?.imageUrl }}
+              width={100}
+              height={100}
+              className="rounded-full"
+            ></Image>
+            <Text className="mt-[10px] text-sm font-normal">Change Photo</Text>
+          </View>
+        </TouchableOpacity>
         <View className=" mx-[15px] mt-[15px]">
           <View className=" border-[1px] border-[#eaeced] rounded-lg h-[70px] mb-[10px]">
             <Text className=" text-sm font-medium px-[10px] pt-[10px]">

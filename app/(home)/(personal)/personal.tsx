@@ -15,6 +15,7 @@ const Personal = () => {
     api.functions.user.getUser,
     user ? { userId: user?.id } : "skip",
   );
+  const stepsFormatted = Number(convexUser?.steps).toLocaleString();
   return (
     <SafeAreaView>
       <View className="">
@@ -42,7 +43,10 @@ const Personal = () => {
             </Text>
           </View>
           <View className=" justify-center absolute right-[10px] -inset-y-0">
-            <TouchableOpacity className="bg-[#000000] rounded-full py-[5px] px-[10px]">
+            <TouchableOpacity
+              onPress={() => router.push("/(home)/(personal)/changeGoalWeight")}
+              className="bg-[#000000] rounded-full py-[5px] px-[10px]"
+            >
               <Text className="text-white">
                 {t(
                   "settingsPage.accountSection.personalDetailsPage.changeGoalButton",
@@ -52,7 +56,12 @@ const Personal = () => {
           </View>
         </View>
         <View className=" mx-[30px]  mt-[20px] rounded-lg border-[1px] border-[#eaeced]">
-          <TouchableOpacity className="ml-[20px] my-[15px] flex-row">
+          <TouchableOpacity
+            onPress={() =>
+              router.push("/(home)/(personal)/changeCurrentWeight")
+            }
+            className="ml-[20px] my-[15px] flex-row"
+          >
             <Text className="font-medium">
               {t(
                 "settingsPage.accountSection.personalDetailsPage.currentWeightText",
@@ -66,7 +75,10 @@ const Personal = () => {
             </View>
           </TouchableOpacity>
           <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-          <TouchableOpacity className="ml-[20px] my-[15px]">
+          <TouchableOpacity
+            onPress={() => router.push("/(home)/(personal)/changeHeight")}
+            className="ml-[20px] my-[15px]"
+          >
             <Text className="font-medium">
               {t("settingsPage.accountSection.personalDetailsPage.heightText")}
             </Text>
@@ -78,7 +90,10 @@ const Personal = () => {
             </View>
           </TouchableOpacity>
           <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-          <TouchableOpacity className="ml-[20px] my-[15px]">
+          <TouchableOpacity
+            onPress={() => router.push("/(home)/(personal)/changeAge")}
+            className="ml-[20px] my-[15px]"
+          >
             <Text className="font-medium">
               {t("settingsPage.accountSection.personalDetailsPage.ageText")}
             </Text>
@@ -90,7 +105,10 @@ const Personal = () => {
             </View>
           </TouchableOpacity>
           <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-          <TouchableOpacity className="ml-[20px] my-[15px]">
+          <TouchableOpacity
+            onPress={() => router.push("/(home)/(personal)/changeGender")}
+            className="ml-[20px] my-[15px]"
+          >
             <Text className="font-medium">
               {t("settingsPage.accountSection.personalDetailsPage.genderText")}
             </Text>
@@ -102,7 +120,10 @@ const Personal = () => {
             </View>
           </TouchableOpacity>
           <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-          <TouchableOpacity className="ml-[20px] my-[15px]">
+          <TouchableOpacity
+            onPress={() => router.push("/(home)/(personal)/changeSteps")}
+            className="ml-[20px] my-[15px]"
+          >
             <Text className="font-medium">
               {t(
                 "settingsPage.accountSection.personalDetailsPage.dailyStepGoal",
@@ -110,7 +131,7 @@ const Personal = () => {
             </Text>
             <View className="flex-row absolute right-[20px]">
               <Text className="mr-[10px] text-lg font-semibold">
-                {convexUser?.steps}
+                {stepsFormatted}
               </Text>
               <Ionicons name="pencil-outline" size={18} />
             </View>

@@ -14,7 +14,7 @@
       "lastNameTextInputText": "Cognome",
       "usernameTextInputText": "Nome utente",
 
-      "continueButton": "Continua"
+      "continueButton": "salva"
     },
 
     "accountSection": {
