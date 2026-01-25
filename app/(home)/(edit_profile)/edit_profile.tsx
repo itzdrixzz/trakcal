@@ -136,7 +136,9 @@ const EditProfile = () => {
               height={100}
               className="rounded-full"
             ></Image>
-            <Text className="mt-[10px] text-sm font-normal">Change Photo</Text>
+            <Text className="mt-[10px] text-sm font-normal">
+              {t("settingsPage.editProfilePage.changePhotoText")}
+            </Text>
           </View>
         </TouchableOpacity>
         <View className=" mx-[15px] mt-[15px]">

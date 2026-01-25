@@ -80,7 +80,10 @@ const Metrics: React.FC<metricsProps> = ({
       </View>
       <View className="mb-[50px] mx-[25px]">
         <TouchableOpacity
-          className="py-[22px] rounded-full items-center bg-black"
+          disabled={!age || !height || !weight}
+          className={`py-[22px] rounded-full items-center ${
+            !age || !height || !weight ? "bg-gray-300" : "bg-black"
+          }`}
           onPress={onNext}
         >
           <Text className="text-[#ffffff] text-xl font-medium">Continue</Text>

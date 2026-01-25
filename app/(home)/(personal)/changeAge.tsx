@@ -5,11 +5,13 @@ import Slider from "@react-native-community/slider";
 import { useMutation, useQuery } from "convex/react";
 import { router } from "expo-router";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ChangeAge = () => {
   const { user } = useClerk();
+  const { t } = useTranslation();
   const convexUser = useQuery(
     api.functions.user.getUser,
     user ? { userId: user?.id } : "skip",
@@ -54,13 +56,24 @@ const ChangeAge = () => {
             <View className="h-[3px] bg-[#000000] w-[210px] rounded-full" />
           </View>
         </View>
-        <Text className="text-3xl ml-[30px] font-bold">What is your age?</Text>
+        <Text className="text-3xl ml-[30px] font-bold">
+          {t(
+            "settingsPage.accountSection.personalDetailsPage.currentAgePage.currentAgeHeaderText",
+          )}
+        </Text>
       </View>
       <View className="flex-1 items-center justify-center">
         <View className="w-full justify-center items-center">
-          <Text className="text-lg font-medium mb-[10px]">Change Age</Text>
+          <Text className="text-lg font-medium mb-[10px]">
+            {t(
+              "settingsPage.accountSection.personalDetailsPage.currentAgePage.changeAgeText",
+            )}
+          </Text>
           <Text className="text-5xl font-bold mb-[20px]">
-            {age || convexUser?.age} Years Old
+            {age || convexUser?.age}{" "}
+            {t(
+              "settingsPage.accountSection.personalDetailsPage.currentAgePage.changeAgeText",
+            )}
           </Text>
           <View className="w-full px-[25px]">
             <Slider
@@ -81,7 +94,11 @@ const ChangeAge = () => {
           onPress={() => handleSubmit()}
           className="py-[22px] rounded-full items-center bg-[#000000]"
         >
-          <Text className="text-[#ffffff] text-xl font-medium">Submit</Text>
+          <Text className="text-[#ffffff] text-xl font-medium">
+            {t(
+              "settingsPage.accountSection.personalDetailsPage.currentAgePage.submitButton",
+            )}
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

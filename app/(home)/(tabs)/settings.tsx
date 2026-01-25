@@ -1,13 +1,15 @@
 import { api } from "@/convex/_generated/api";
 import { useClerk, useUser } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
-import { useQuery } from "convex/react";
+import axios from "axios";
+import { useMutation, useQuery } from "convex/react";
 import { useRouter } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import {
   Alert,
   Image,
+  Linking,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -26,6 +28,8 @@ const Settings = () => {
     user ? { userId: user?.id } : "skip",
   );
 
+  const delteUserAccount = useMutation(api.functions.user.deleteUserData);
+
   const signOutAlert = async () => {
     Alert.alert("Logout", "Are you sure you want to Logout?", [
       { text: "Logout", style: "destructive", onPress: () => handleSignOut() },
@@ -42,6 +46,62 @@ const Settings = () => {
       // See https://clerk.com/docs/guides/development/custom-flows/error-handling
       // for more info on error handling
       console.error(JSON.stringify(err, null, 2));
+    }
+  };
+
+  const deleteAccountAlert = () => {
+    Alert.alert(
+      "Delete Account!",
+      "Deleting you account will erase all data connect to this account!",
+      [
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: () => handleDeleteAccount(),
+        },
+        { text: "Cancel", style: "cancel" },
+      ],
+    );
+  };
+
+  const handleDeleteAccount = async () => {
+    if (!user) return;
+    await delteUserAccount({ userId: user?.id });
+
+    try {
+      const json = {
+        id: user.id,
+      };
+      const response = await axios.post(
+        "https://aerological-cathleen-eximiously.ngrok-free.dev/clerk/delete/account",
+        json,
+        { headers: { "Content-Type": "application/json" } },
+      );
+      console.log("Response:", response.data);
+      console.log("api has been sent");
+      try {
+        await signOut();
+        // Redirect to your desired page
+        router.replace("/(auth)/sign-in");
+      } catch (err) {
+        // See https://clerk.com/docs/guides/development/custom-flows/error-handling
+        // for more info on error handling
+        console.error(JSON.stringify(err, null, 2));
+      }
+    } catch (error) {
+      console.log("failed to delete account", error);
+    }
+  };
+
+  const handleSupportEmail = async () => {
+    const email = "weberwillow2010@gmail.com";
+    const url = `mailto:${email}`;
+
+    const canOpen = await Linking.canOpenURL(url);
+    if (canOpen) {
+      Linking.openURL(url);
+    } else {
+      Alert.alert("Error", "No email app is avalible");
     }
   };
 
@@ -142,7 +202,11 @@ const Settings = () => {
           <View className=" border-[1px] border-[#eaeced] mt-[10px] rounded-xl">
             <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
               <View className="absolute right-[20px] inset-y-0 justify-center">
-                <Text className="text-base font-medium">Not Connected</Text>
+                <Text className="text-base font-medium">
+                  {t(
+                    "settingsPage.goalsAndTrackingSection.appleHealthButtonTextNotConnected",
+                  )}
+                </Text>
               </View>
               <Ionicons name="heart-outline" size={28}></Ionicons>
               <Text className="pl-[10px] font-semibold">
@@ -222,7 +286,10 @@ const Settings = () => {
             {t("settingsPage.supportAndLegalSection.supportAndLegalHeaderText")}
           </Text>
           <View className=" border-[1px] border-[#eaeced] mt-[10px] rounded-xl">
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => handleSupportEmail()}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <View className="absolute right-[20px] inset-y-0 justify-center">
                 <Ionicons
                   name="chevron-forward-outline"
@@ -339,7 +406,10 @@ const Settings = () => {
               </Text>
             </TouchableOpacity>
             <View className="h-[1px] bg-[#ededed] mx-[20px] rounded-full" />
-            <TouchableOpacity className="flex-row items-center ml-[20px] my-[10px]">
+            <TouchableOpacity
+              onPress={() => deleteAccountAlert()}
+              className="flex-row items-center ml-[20px] my-[10px]"
+            >
               <Ionicons name="trash-outline" size={28}></Ionicons>
               <Text className="pl-[10px] font-semibold">
                 {t("settingsPage.accountActionsSection.deleteAccountButton")}

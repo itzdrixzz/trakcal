@@ -10,11 +10,13 @@
     "editProfilePage": {
       "editProfileHeaderText": "प्रोफ़ाइल संपादित करें",
 
+      "changePhotoText": "फ़ोटो बदलें",
+
       "firstNameTextInputText": "पहला नाम",
       "lastNameTextInputText": "अंतिम नाम",
-      "usernameTextInputText": "उपयोगकर्ता नाम",
+      "usernameTextInputText": "यूज़रनेम",
 
-      "continueButton": "बचाना"
+      "continueButton": "सहेजें"
     },
 
     "accountSection": {
@@ -26,12 +28,53 @@
 
         "goalWeightText": "लक्ष्य वजन",
         "changeGoalButton": "लक्ष्य बदलें",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "आपका लक्ष्य वजन क्या है?",
+          "changeGoalText": "लक्ष्य बदलें",
+          "submitButton": "जमा करें"
+        },
 
         "currentWeightText": "वर्तमान वजन",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "आपका वर्तमान वजन क्या है?",
+          "changeWeightText": "वजन बदलें",
+          "submitButton": "जमा करें"
+        },
+
         "heightText": "ऊँचाई",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "आपकी वर्तमान ऊँचाई क्या है?",
+          "changeHeightText": "बदलें",
+          "submitButton": "जमा करें"
+        },
+
         "ageText": "आयु",
+        "ageTextYearsOldText": "वर्ष",
+        "currentAgePage": {
+          "currentAgeHeaderText": "आपकी आयु क्या है?",
+          "changeAgeText": "आयु बदलें",
+          "submitButton": "जमा करें"
+        },
+
         "genderText": "लिंग",
-        "dailyStepGoal": "दैनिक कदम लक्ष्य"
+        "genderTextFemaleVersionText": "महिला",
+        "genderTextMaleVersionText": "पुरुष",
+        "genderTextOtherVersionText": "अन्य",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "आपका लिंग क्या है?",
+          "maleButtonText": "पुरुष",
+          "femaleButtonText": "महिला",
+          "otherButtonText": "अन्य",
+          "submitButton": "जमा करें"
+        },
+
+        "dailyStepGoal": "दैनिक कदम लक्ष्य",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "आपका दैनिक कदम लक्ष्य क्या है?",
+          "changeStepsText": "कदम बदलें",
+          "steps": "कदम",
+          "submitButton": "जमा करें"
+        }
       },
 
       "prefrencesButton": "प्राथमिकताएँ",
@@ -47,6 +90,7 @@
       "goalsAndTrackingHeaderText": "लक्ष्य और ट्रैकिंग",
 
       "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "कनेक्ट नहीं है",
 
       "nutritionGoalsButton": "पोषण लक्ष्य",
       "nutritionGoalsPage": {},
@@ -54,13 +98,13 @@
       "goalsAndCurrentWeightButton": "लक्ष्य और वर्तमान वजन",
       "goalsAndCurrentWeightPage": {},
 
-      "ringColorsExplanedButton": "रिंग के रंगों की व्याख्या",
+      "ringColorsExplanedButton": "रिंग के रंगों की जानकारी",
       "ringColorsExplanedPage": {},
 
       "trackingRemindersButton": "ट्रैकिंग रिमाइंडर",
       "trackingRemindersPage": {
         "remindersHeaderText": "रिमाइंडर",
-        "notificationsDisabledText": "Trakcal के लिए सूचनाएँ वर्तमान में अक्षम हैं। सक्षम करने के लिए कृपया सिस्टम सेटिंग्स पर जाएँ।",
+        "notificationsDisabledText": "Trakcal के लिए नोटिफ़िकेशन वर्तमान में बंद हैं। उन्हें सक्षम करने के लिए सिस्टम सेटिंग्स में जाएँ।",
         "openSettingsButton": "सेटिंग्स खोलें",
         "trackingRemindersHeaderText": "ट्रैकिंग रिमाइंडर",
         "breakfastText": "नाश्ता",
@@ -79,9 +123,9 @@
 
     "followMeSection": {
       "followMeHeaderText": "मुझे फ़ॉलो करें",
-      "githubButton": "GitHub",
+      "githubButton": "Github",
       "discordButton": "Discord",
-      "youtubeButton": "YouTube"
+      "youtubeButton": "Youtube"
     },
 
     "accountActionsSection": {

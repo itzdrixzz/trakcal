@@ -187,3 +187,17 @@ export const changeUserStepGoal = mutation(
     await ctx.db.patch(docId, { steps });
   },
 );
+
+export const deleteUserData = mutation(
+  async (ctx, { userId }: { userId: string }) => {
+    // query the table for this user
+    const userRows = await ctx.db
+      .query("user")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .collect();
+
+    for (const row of userRows) {
+      await ctx.db.delete("user", row._id);
+    }
+  },
+);

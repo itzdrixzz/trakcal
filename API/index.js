@@ -48,6 +48,18 @@ app.post("/clerk/update/metadata/completedonboarding", async (req, res) => {
   res.send("Updated metadata for succsesfully: 200");
 });
 
+app.post("/clerk/delete/account", async (req, res) => {
+  const body = req.body;
+  const userId = body.id;
+
+  try {
+    await clerkClient.users.deleteUser(userId);
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.log("Error deleting user Account", error);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

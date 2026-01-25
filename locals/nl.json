@@ -10,11 +10,13 @@
     "editProfilePage": {
       "editProfileHeaderText": "Profiel bewerken",
 
+      "changePhotoText": "Foto wijzigen",
+
       "firstNameTextInputText": "Voornaam",
       "lastNameTextInputText": "Achternaam",
       "usernameTextInputText": "Gebruikersnaam",
 
-      "continueButton": "redden"
+      "continueButton": "Opslaan"
     },
 
     "accountSection": {
@@ -26,12 +28,53 @@
 
         "goalWeightText": "Streefgewicht",
         "changeGoalButton": "Doel wijzigen",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "Wat is je streefgewicht?",
+          "changeGoalText": "Doel wijzigen",
+          "submitButton": "Indienen"
+        },
 
         "currentWeightText": "Huidig gewicht",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "Wat is je huidige gewicht?",
+          "changeWeightText": "Gewicht wijzigen",
+          "submitButton": "Indienen"
+        },
+
         "heightText": "Lengte",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "Wat is je huidige lengte?",
+          "changeHeightText": "Wijzigen",
+          "submitButton": "Indienen"
+        },
+
         "ageText": "Leeftijd",
+        "ageTextYearsOldText": "Jaar",
+        "currentAgePage": {
+          "currentAgeHeaderText": "Wat is je leeftijd?",
+          "changeAgeText": "Leeftijd wijzigen",
+          "submitButton": "Indienen"
+        },
+
         "genderText": "Geslacht",
-        "dailyStepGoal": "Dagelijks stappendoel"
+        "genderTextFemaleVersionText": "Vrouw",
+        "genderTextMaleVersionText": "Man",
+        "genderTextOtherVersionText": "Anders",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "Wat is je geslacht?",
+          "maleButtonText": "Man",
+          "femaleButtonText": "Vrouw",
+          "otherButtonText": "Anders",
+          "submitButton": "Indienen"
+        },
+
+        "dailyStepGoal": "Dagelijks stappendoel",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "Wat is je dagelijkse stappendoel?",
+          "changeStepsText": "Stappen wijzigen",
+          "steps": "Stappen",
+          "submitButton": "Indienen"
+        }
       },
 
       "prefrencesButton": "Voorkeuren",
@@ -39,7 +82,7 @@
 
       "langaugeButton": "Taal",
       "languagePage": {
-        "languageHeaderText": "Selecteer taal"
+        "languageHeaderText": "Taal selecteren"
       }
     },
 
@@ -47,6 +90,7 @@
       "goalsAndTrackingHeaderText": "Doelen en tracking",
 
       "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "Niet verbonden",
 
       "nutritionGoalsButton": "Voedingsdoelen",
       "nutritionGoalsPage": {},
@@ -54,7 +98,7 @@
       "goalsAndCurrentWeightButton": "Doelen en huidig gewicht",
       "goalsAndCurrentWeightPage": {},
 
-      "ringColorsExplanedButton": "Uitleg ringkleuren",
+      "ringColorsExplanedButton": "Ringkleuren uitgelegd",
       "ringColorsExplanedPage": {},
 
       "trackingRemindersButton": "Trackingherinneringen",
@@ -65,7 +109,7 @@
         "trackingRemindersHeaderText": "Trackingherinneringen",
         "breakfastText": "Ontbijt",
         "lunchText": "Lunch",
-        "snackText": "Snack",
+        "snackText": "Tussendoortje",
         "DinerText": "Diner"
       }
     },
@@ -79,9 +123,9 @@
 
     "followMeSection": {
       "followMeHeaderText": "Volg mij",
-      "githubButton": "GitHub",
+      "githubButton": "Github",
       "discordButton": "Discord",
-      "youtubeButton": "YouTube"
+      "youtubeButton": "Youtube"
     },
 
     "accountActionsSection": {

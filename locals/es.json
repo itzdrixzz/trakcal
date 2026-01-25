@@ -10,28 +10,71 @@
     "editProfilePage": {
       "editProfileHeaderText": "Editar perfil",
 
+      "changePhotoText": "Cambiar foto",
+
       "firstNameTextInputText": "Nombre",
       "lastNameTextInputText": "Apellido",
       "usernameTextInputText": "Nombre de usuario",
 
-      "continueButton": "ahorrar"
+      "continueButton": "Guardar"
     },
 
     "accountSection": {
       "accountHeaderText": "Cuenta",
 
-      "personalDetailsButton": "Datos personales",
+      "personalDetailsButton": "Detalles personales",
       "personalDetailsPage": {
-        "personalDetailsHeaderText": "Datos personales",
+        "personalDetailsHeaderText": "Detalles personales",
 
         "goalWeightText": "Peso objetivo",
         "changeGoalButton": "Cambiar objetivo",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "¿Cuál es tu peso objetivo?",
+          "changeGoalText": "Cambiar objetivo",
+          "submitButton": "Enviar"
+        },
 
         "currentWeightText": "Peso actual",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "¿Cuál es tu peso actual?",
+          "changeWeightText": "Cambiar peso",
+          "submitButton": "Enviar"
+        },
+
         "heightText": "Altura",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "¿Cuál es tu altura actual?",
+          "changeHeightText": "Cambiar",
+          "submitButton": "Enviar"
+        },
+
         "ageText": "Edad",
+        "ageTextYearsOldText": "Años",
+        "currentAgePage": {
+          "currentAgeHeaderText": "¿Cuál es tu edad?",
+          "changeAgeText": "Cambiar edad",
+          "submitButton": "Enviar"
+        },
+
         "genderText": "Género",
-        "dailyStepGoal": "Objetivo diario de pasos"
+        "genderTextFemaleVersionText": "Femenino",
+        "genderTextMaleVersionText": "Masculino",
+        "genderTextOtherVersionText": "Texto",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "¿Cuál es tu género?",
+          "maleButtonText": "Masculino",
+          "femaleButtonText": "Femenino",
+          "otherButtonText": "Otro",
+          "submitButton": "Enviar"
+        },
+
+        "dailyStepGoal": "Objetivo diario de pasos",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "¿Cuál es tu objetivo diario de pasos?",
+          "changeStepsText": "Cambiar pasos",
+          "steps": "Pasos",
+          "submitButton": "Enviar"
+        }
       },
 
       "prefrencesButton": "Preferencias",
@@ -47,14 +90,15 @@
       "goalsAndTrackingHeaderText": "Objetivos y seguimiento",
 
       "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "No conectado",
 
-      "nutritionGoalsButton": "Objetivos nutricionales",
+      "nutritionGoalsButton": "Objetivos de nutrición",
       "nutritionGoalsPage": {},
 
       "goalsAndCurrentWeightButton": "Objetivos y peso actual",
       "goalsAndCurrentWeightPage": {},
 
-      "ringColorsExplanedButton": "Colores de los anillos explicados",
+      "ringColorsExplanedButton": "Colores del anillo explicados",
       "ringColorsExplanedPage": {},
 
       "trackingRemindersButton": "Recordatorios de seguimiento",
@@ -79,13 +123,13 @@
 
     "followMeSection": {
       "followMeHeaderText": "Sígueme",
-      "githubButton": "GitHub",
+      "githubButton": "Github",
       "discordButton": "Discord",
-      "youtubeButton": "YouTube"
+      "youtubeButton": "Youtube"
     },
 
     "accountActionsSection": {
-      "accountActionsHeaderText": "Acciones de cuenta",
+      "accountActionsHeaderText": "Acciones de la cuenta",
       "logoutButton": "Cerrar sesión",
       "deleteAccountButton": "Eliminar cuenta"
     }

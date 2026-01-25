@@ -43,13 +43,7 @@ const Desired: React.FC<desiredProps> = ({
       </View>
       <View className="flex-1 items-center justify-center">
         <View className="w-full justify-center items-center">
-          <Text className="text-lg font-medium mb-[10px]">
-            {goal === "Lose Weight"
-              ? "Losing Weight"
-              : goal === "Maintain Weight"
-                ? "Maintain Weight"
-                : "Gain Weight"}
-          </Text>
+          <Text className="text-lg font-medium mb-[10px]">Desired Weight</Text>
           <Text className="text-5xl font-bold mb-[20px]">
             {desiredWeight} LB
           </Text>

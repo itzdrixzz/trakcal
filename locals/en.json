@@ -10,6 +10,8 @@
     "editProfilePage": {
       "editProfileHeaderText": "Edit Profile",
 
+      "changePhotoText": "change Photo",
+
       "firstNameTextInputText": "First Name",
       "lastNameTextInputText": "Last Name",
       "usernameTextInputText": "Username",
@@ -26,12 +28,53 @@
 
         "goalWeightText": "Goal Weight",
         "changeGoalButton": "Change Goal",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "What is your\n goal weight?",
+          "changeGoalText": "Change Goal",
+          "submitButton": "Submit"
+        },
 
         "currentWeightText": "Current Weight",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "What is your\n current weight?",
+          "changeWeightText": "Change Weight",
+          "submitButton": "Submit"
+        },
+
         "heightText": "Height",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "What is your\n current height?",
+          "changeHeightText": "Change",
+          "submitButton": "Submit"
+        },
+
         "ageText": "Age",
+        "ageTextYearsOldText": "Years Old",
+        "currentAgePage": {
+          "currentAgeHeaderText": "What is your age?",
+          "changeAgeText": "Change Age",
+          "submitButton": "Submit"
+        },
+
         "genderText": "Gender",
-        "dailyStepGoal": "Daily Step Goal"
+        "genderTextFemaleVersionText": "Female",
+        "genderTextMaleVersionText": "Male",
+        "genderTextOtherVersionText": "Text",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "Whats your Gender?",
+          "maleButtonText": "Male",
+          "femaleButtonText": "Female",
+          "otherButtonText": "Other",
+          "submitButton": "Submit"
+        },
+
+        "dailyStepGoal": "Daily Step Goal",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "Whats your daily step goal?",
+          "changeStepsText": "Change Steps",
+          "steps": "Steps",
+          "submitButton": "Submit"
+        }
       },
 
       "prefrencesButton": "Prefrences",
@@ -47,6 +90,7 @@
       "goalsAndTrackingHeaderText": "Goals & Tracking",
 
       "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "Not Connected",
 
       "nutritionGoalsButton": "Nutrition Goals",
       "nutritionGoalsPage": {},

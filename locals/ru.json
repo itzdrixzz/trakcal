@@ -10,11 +10,13 @@
     "editProfilePage": {
       "editProfileHeaderText": "Редактировать профиль",
 
+      "changePhotoText": "Изменить фото",
+
       "firstNameTextInputText": "Имя",
       "lastNameTextInputText": "Фамилия",
       "usernameTextInputText": "Имя пользователя",
 
-      "continueButton": "сохранять"
+      "continueButton": "Сохранить"
     },
 
     "accountSection": {
@@ -26,12 +28,53 @@
 
         "goalWeightText": "Целевой вес",
         "changeGoalButton": "Изменить цель",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "Какой у вас целевой вес?",
+          "changeGoalText": "Изменить цель",
+          "submitButton": "Отправить"
+        },
 
         "currentWeightText": "Текущий вес",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "Какой у вас текущий вес?",
+          "changeWeightText": "Изменить вес",
+          "submitButton": "Отправить"
+        },
+
         "heightText": "Рост",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "Какой у вас текущий рост?",
+          "changeHeightText": "Изменить",
+          "submitButton": "Отправить"
+        },
+
         "ageText": "Возраст",
+        "ageTextYearsOldText": "Лет",
+        "currentAgePage": {
+          "currentAgeHeaderText": "Сколько вам лет?",
+          "changeAgeText": "Изменить возраст",
+          "submitButton": "Отправить"
+        },
+
         "genderText": "Пол",
-        "dailyStepGoal": "Ежедневная цель по шагам"
+        "genderTextFemaleVersionText": "Женский",
+        "genderTextMaleVersionText": "Мужской",
+        "genderTextOtherVersionText": "Другой",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "Какой у вас пол?",
+          "maleButtonText": "Мужской",
+          "femaleButtonText": "Женский",
+          "otherButtonText": "Другой",
+          "submitButton": "Отправить"
+        },
+
+        "dailyStepGoal": "Ежедневная цель шагов",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "Какова ваша ежедневная цель по шагам?",
+          "changeStepsText": "Изменить количество шагов",
+          "steps": "Шаги",
+          "submitButton": "Отправить"
+        }
       },
 
       "prefrencesButton": "Предпочтения",
@@ -47,6 +90,7 @@
       "goalsAndTrackingHeaderText": "Цели и отслеживание",
 
       "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "Не подключено",
 
       "nutritionGoalsButton": "Цели питания",
       "nutritionGoalsPage": {},
@@ -54,7 +98,7 @@
       "goalsAndCurrentWeightButton": "Цели и текущий вес",
       "goalsAndCurrentWeightPage": {},
 
-      "ringColorsExplanedButton": "Объяснение цветов колец",
+      "ringColorsExplanedButton": "Объяснение цветов кольца",
       "ringColorsExplanedPage": {},
 
       "trackingRemindersButton": "Напоминания об отслеживании",
@@ -79,9 +123,9 @@
 
     "followMeSection": {
       "followMeHeaderText": "Подписывайтесь",
-      "githubButton": "GitHub",
+      "githubButton": "Github",
       "discordButton": "Discord",
-      "youtubeButton": "YouTube"
+      "youtubeButton": "Youtube"
     },
 
     "accountActionsSection": {

@@ -10,11 +10,13 @@
     "editProfilePage": {
       "editProfileHeaderText": "Editar perfil",
 
+      "changePhotoText": "Alterar foto",
+
       "firstNameTextInputText": "Nome",
       "lastNameTextInputText": "Sobrenome",
       "usernameTextInputText": "Nome de usuário",
 
-      "continueButton": "salvar"
+      "continueButton": "Salvar"
     },
 
     "accountSection": {
@@ -24,14 +26,55 @@
       "personalDetailsPage": {
         "personalDetailsHeaderText": "Dados pessoais",
 
-        "goalWeightText": "Peso alvo",
-        "changeGoalButton": "Alterar meta",
+        "goalWeightText": "Peso objetivo",
+        "changeGoalButton": "Alterar objetivo",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "Qual é o seu peso objetivo?",
+          "changeGoalText": "Alterar objetivo",
+          "submitButton": "Enviar"
+        },
 
         "currentWeightText": "Peso atual",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "Qual é o seu peso atual?",
+          "changeWeightText": "Alterar peso",
+          "submitButton": "Enviar"
+        },
+
         "heightText": "Altura",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "Qual é a sua altura atual?",
+          "changeHeightText": "Alterar",
+          "submitButton": "Enviar"
+        },
+
         "ageText": "Idade",
+        "ageTextYearsOldText": "Anos",
+        "currentAgePage": {
+          "currentAgeHeaderText": "Qual é a sua idade?",
+          "changeAgeText": "Alterar idade",
+          "submitButton": "Enviar"
+        },
+
         "genderText": "Gênero",
-        "dailyStepGoal": "Meta diária de passos"
+        "genderTextFemaleVersionText": "Feminino",
+        "genderTextMaleVersionText": "Masculino",
+        "genderTextOtherVersionText": "Outro",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "Qual é o seu gênero?",
+          "maleButtonText": "Masculino",
+          "femaleButtonText": "Feminino",
+          "otherButtonText": "Outro",
+          "submitButton": "Enviar"
+        },
+
+        "dailyStepGoal": "Meta diária de passos",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "Qual é a sua meta diária de passos?",
+          "changeStepsText": "Alterar passos",
+          "steps": "Passos",
+          "submitButton": "Enviar"
+        }
       },
 
       "prefrencesButton": "Preferências",
@@ -47,20 +90,21 @@
       "goalsAndTrackingHeaderText": "Metas e acompanhamento",
 
       "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "Não conectado",
 
-      "nutritionGoalsButton": "Metas nutricionais",
+      "nutritionGoalsButton": "Metas de nutrição",
       "nutritionGoalsPage": {},
 
       "goalsAndCurrentWeightButton": "Metas e peso atual",
       "goalsAndCurrentWeightPage": {},
 
-      "ringColorsExplanedButton": "Cores dos anéis explicadas",
+      "ringColorsExplanedButton": "Cores do anel explicadas",
       "ringColorsExplanedPage": {},
 
       "trackingRemindersButton": "Lembretes de acompanhamento",
       "trackingRemindersPage": {
         "remindersHeaderText": "Lembretes",
-        "notificationsDisabledText": "As notificações estão desativadas no momento para o Trakcal. Para ativá-las, vá até as configurações do sistema.",
+        "notificationsDisabledText": "As notificações estão desativadas no momento para o Trakcal. Para ativá-las, acesse as configurações do sistema.",
         "openSettingsButton": "Abrir configurações",
         "trackingRemindersHeaderText": "Lembretes de acompanhamento",
         "breakfastText": "Café da manhã",
@@ -71,7 +115,7 @@
     },
 
     "supportAndLegalSection": {
-      "supportAndLegalHeaderText": "Suporte e jurídico",
+      "supportAndLegalHeaderText": "Suporte e legal",
       "supportEmailButton": "E-mail de suporte",
       "termsAndConditionsButton": "Termos e condições",
       "privacyPolicyButton": "Política de privacidade"
@@ -79,9 +123,9 @@
 
     "followMeSection": {
       "followMeHeaderText": "Siga-me",
-      "githubButton": "GitHub",
+      "githubButton": "Github",
       "discordButton": "Discord",
-      "youtubeButton": "YouTube"
+      "youtubeButton": "Youtube"
     },
 
     "accountActionsSection": {

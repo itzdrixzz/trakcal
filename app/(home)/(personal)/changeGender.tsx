@@ -4,11 +4,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { useMutation, useQuery } from "convex/react";
 import { router } from "expo-router";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ChangeGender = () => {
   const { user } = useClerk();
+  const { t } = useTranslation();
   const convexUser = useQuery(
     api.functions.user.getUser,
     user ? { userId: user?.id } : "skip",
@@ -61,7 +63,11 @@ const ChangeGender = () => {
             <View className="h-[3px] bg-[#000000] w-[42px] rounded-full" />
           </View>
         </View>
-        <Text className="text-3xl ml-[30px] font-bold">Whats your Gender?</Text>
+        <Text className="text-3xl ml-[30px] font-bold">
+          {t(
+            "settingsPage.accountSection.personalDetailsPage.currentGenderPage.currentGenderHeaderText",
+          )}
+        </Text>
       </View>
       <View className="flex-1 items-center justify-center">
         <View>
@@ -74,7 +80,17 @@ const ChangeGender = () => {
               <Text
                 className={`${gender === option ? "text-white" : "text-black"} font-semibold`}
               >
-                {option}
+                {option === "Male"
+                  ? t(
+                      "settingsPage.accountSection.personalDetailsPage.currentGenderPage.maleButtonText",
+                    )
+                  : option === "Female"
+                    ? t(
+                        "settingsPage.accountSection.personalDetailsPage.currentGenderPage.femaleButtonText",
+                      )
+                    : t(
+                        "settingsPage.accountSection.personalDetailsPage.currentGenderPage.otherButtonText",
+                      )}
               </Text>
             </TouchableOpacity>
           ))}
@@ -86,7 +102,11 @@ const ChangeGender = () => {
           disabled={!gender}
           className={`py-[22px] rounded-full items-center ${gender ? "bg-[#000000]" : "bg-gray-300"}`}
         >
-          <Text className="text-[#ffffff] text-xl font-medium">Submit</Text>
+          <Text className="text-[#ffffff] text-xl font-medium">
+            {t(
+              "settingsPage.accountSection.personalDetailsPage.currentGenderPage.submitButton",
+            )}
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

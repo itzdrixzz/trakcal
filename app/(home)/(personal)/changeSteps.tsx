@@ -5,11 +5,13 @@ import Slider from "@react-native-community/slider";
 import { useMutation, useQuery } from "convex/react";
 import { router } from "expo-router";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ChangeSteps = () => {
   const { user } = useClerk();
+  const { t } = useTranslation();
   const convexUser = useQuery(
     api.functions.user.getUser,
     user ? { userId: user?.id } : "skip",
@@ -41,14 +43,23 @@ const ChangeSteps = () => {
           </View>
         </View>
         <Text className="text-3xl ml-[30px] font-bold">
-          Whats your daily step goal?
+          {t(
+            "settingsPage.accountSection.personalDetailsPage.dailyStepGoalPage.dailyStepGoalHeaderText",
+          )}
         </Text>
       </View>
       <View className="flex-1 items-center justify-center">
         <View className="w-full justify-center items-center">
-          <Text className="text-lg font-medium mb-[10px]">Change Steps</Text>
+          <Text className="text-lg font-medium mb-[10px]">
+            {t(
+              "settingsPage.accountSection.personalDetailsPage.dailyStepGoalPage.changeStepsText",
+            )}
+          </Text>
           <Text className="text-5xl font-bold mb-[20px]">
-            {stepsFormatted} Steps
+            {stepsFormatted}{" "}
+            {t(
+              "settingsPage.accountSection.personalDetailsPage.dailyStepGoalPage.steps",
+            )}
           </Text>
           <View className="w-full px-[25px]">
             <Slider

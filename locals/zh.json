@@ -10,11 +10,13 @@
     "editProfilePage": {
       "editProfileHeaderText": "编辑个人资料",
 
-      "firstNameTextInputText": "名",
-      "lastNameTextInputText": "姓",
+      "changePhotoText": "更换照片",
+
+      "firstNameTextInputText": "名字",
+      "lastNameTextInputText": "姓氏",
       "usernameTextInputText": "用户名",
 
-      "continueButton": "节省"
+      "continueButton": "保存"
     },
 
     "accountSection": {
@@ -26,12 +28,53 @@
 
         "goalWeightText": "目标体重",
         "changeGoalButton": "更改目标",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "你的目标体重是多少？",
+          "changeGoalText": "更改目标",
+          "submitButton": "提交"
+        },
 
         "currentWeightText": "当前体重",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "你当前的体重是多少？",
+          "changeWeightText": "更改体重",
+          "submitButton": "提交"
+        },
+
         "heightText": "身高",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "你当前的身高是多少？",
+          "changeHeightText": "更改",
+          "submitButton": "提交"
+        },
+
         "ageText": "年龄",
+        "ageTextYearsOldText": "岁",
+        "currentAgePage": {
+          "currentAgeHeaderText": "你的年龄是多少？",
+          "changeAgeText": "更改年龄",
+          "submitButton": "提交"
+        },
+
         "genderText": "性别",
-        "dailyStepGoal": "每日步数目标"
+        "genderTextFemaleVersionText": "女性",
+        "genderTextMaleVersionText": "男性",
+        "genderTextOtherVersionText": "其他",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "你的性别是什么？",
+          "maleButtonText": "男性",
+          "femaleButtonText": "女性",
+          "otherButtonText": "其他",
+          "submitButton": "提交"
+        },
+
+        "dailyStepGoal": "每日步数目标",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "你的每日步数目标是多少？",
+          "changeStepsText": "更改步数",
+          "steps": "步骤",
+          "submitButton": "提交"
+        }
       },
 
       "prefrencesButton": "偏好设置",
@@ -46,7 +89,8 @@
     "goalsAndTrackingSection": {
       "goalsAndTrackingHeaderText": "目标与追踪",
 
-      "appleHealthButton": "Apple 健康",
+      "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "未连接",
 
       "nutritionGoalsButton": "营养目标",
       "nutritionGoalsPage": {},
@@ -60,7 +104,7 @@
       "trackingRemindersButton": "追踪提醒",
       "trackingRemindersPage": {
         "remindersHeaderText": "提醒",
-        "notificationsDisabledText": "Trakcal 的通知目前已被禁用。如需启用，请前往系统设置。",
+        "notificationsDisabledText": "Trakcal 的通知当前已被禁用。要启用通知，请前往系统设置。",
         "openSettingsButton": "打开设置",
         "trackingRemindersHeaderText": "追踪提醒",
         "breakfastText": "早餐",
@@ -73,15 +117,15 @@
     "supportAndLegalSection": {
       "supportAndLegalHeaderText": "支持与法律",
       "supportEmailButton": "支持邮箱",
-      "termsAndConditionsButton": "条款和条件",
+      "termsAndConditionsButton": "条款与条件",
       "privacyPolicyButton": "隐私政策"
     },
 
     "followMeSection": {
       "followMeHeaderText": "关注我",
-      "githubButton": "GitHub",
+      "githubButton": "Github",
       "discordButton": "Discord",
-      "youtubeButton": "YouTube"
+      "youtubeButton": "Youtube"
     },
 
     "accountActionsSection": {

@@ -10,11 +10,13 @@
     "editProfilePage": {
       "editProfileHeaderText": "Redigera profil",
 
+      "changePhotoText": "Byt foto",
+
       "firstNameTextInputText": "Förnamn",
       "lastNameTextInputText": "Efternamn",
       "usernameTextInputText": "Användarnamn",
 
-      "continueButton": "spara"
+      "continueButton": "Spara"
     },
 
     "accountSection": {
@@ -26,12 +28,53 @@
 
         "goalWeightText": "Målvikt",
         "changeGoalButton": "Ändra mål",
+        "changeGoalPage": {
+          "goalWeightHeaderText": "Vad är din målvikt?",
+          "changeGoalText": "Ändra mål",
+          "submitButton": "Skicka"
+        },
 
         "currentWeightText": "Nuvarande vikt",
+        "currentWeightPage": {
+          "currentWeightHeaderText": "Vad är din nuvarande vikt?",
+          "changeWeightText": "Ändra vikt",
+          "submitButton": "Skicka"
+        },
+
         "heightText": "Längd",
+        "currentHeightPage": {
+          "currentHeightHeaderText": "Vad är din nuvarande längd?",
+          "changeHeightText": "Ändra",
+          "submitButton": "Skicka"
+        },
+
         "ageText": "Ålder",
+        "ageTextYearsOldText": "År",
+        "currentAgePage": {
+          "currentAgeHeaderText": "Hur gammal är du?",
+          "changeAgeText": "Ändra ålder",
+          "submitButton": "Skicka"
+        },
+
         "genderText": "Kön",
-        "dailyStepGoal": "Dagligt stegmål"
+        "genderTextFemaleVersionText": "Kvinna",
+        "genderTextMaleVersionText": "Man",
+        "genderTextOtherVersionText": "Annat",
+        "currentGenderPage": {
+          "currentGenderHeaderText": "Vilket kön har du?",
+          "maleButtonText": "Man",
+          "femaleButtonText": "Kvinna",
+          "otherButtonText": "Annat",
+          "submitButton": "Skicka"
+        },
+
+        "dailyStepGoal": "Dagligt stegmål",
+        "dailyStepGoalPage": {
+          "dailyStepGoalHeaderText": "Vad är ditt dagliga stegmål?",
+          "changeStepsText": "Ändra steg",
+          "steps": "Steg",
+          "submitButton": "Skicka"
+        }
       },
 
       "prefrencesButton": "Inställningar",
@@ -47,6 +90,7 @@
       "goalsAndTrackingHeaderText": "Mål och spårning",
 
       "appleHealthButton": "Apple Health",
+      "appleHealthButtonTextNotConnected": "Inte ansluten",
 
       "nutritionGoalsButton": "Näringsmål",
       "nutritionGoalsPage": {},
@@ -79,9 +123,9 @@
 
     "followMeSection": {
       "followMeHeaderText": "Följ mig",
-      "githubButton": "GitHub",
+      "githubButton": "Github",
       "discordButton": "Discord",
-      "youtubeButton": "YouTube"
+      "youtubeButton": "Youtube"
     },
 
     "accountActionsSection": {

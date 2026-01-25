@@ -99,7 +99,10 @@ const Personal = () => {
             </Text>
             <View className="flex-row absolute right-[20px]">
               <Text className="mr-[10px] text-lg font-semibold">
-                {convexUser?.age} Years Old
+                {convexUser?.age}{" "}
+                {t(
+                  "settingsPage.accountSection.personalDetailsPage.ageTextYearsOldText",
+                )}
               </Text>
               <Ionicons name="pencil-outline" size={18} />
             </View>
@@ -114,7 +117,19 @@ const Personal = () => {
             </Text>
             <View className="flex-row absolute right-[20px]">
               <Text className="mr-[10px] text-lg font-semibold">
-                {convexUser?.gender}
+                {convexUser?.gender === "Male"
+                  ? t(
+                      "settingsPage.accountSection.personalDetailsPage.genderTextMaleVersionText",
+                    )
+                  : convexUser?.gender === "Female"
+                    ? t(
+                        "settingsPage.accountSection.personalDetailsPage.genderTextFemaleVersionText",
+                      )
+                    : convexUser?.gender === "Other"
+                      ? t(
+                          "settingsPage.accountSection.personalDetailsPage.genderTextOtherVersionText",
+                        )
+                      : null}
               </Text>
               <Ionicons name="pencil-outline" size={18} />
             </View>
