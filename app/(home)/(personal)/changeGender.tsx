@@ -1,3 +1,4 @@
+import changeGenderSubmit from "@/app/functions/changeGender";
 import { api } from "@/convex/_generated/api";
 import { useClerk } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
@@ -25,27 +26,27 @@ const ChangeGender = () => {
     "Other",
   ];
 
-  const handleSubmit = async () => {
-    if (!user || !convexUser || !gender) return;
+  const submit = () => {
     if (
-      convexUser.gender === undefined ||
+      !user ||
+      convexUser?.heightCm === undefined ||
+      convexUser.weight === undefined ||
+      gender === null ||
       convexUser.age === undefined ||
-      convexUser.heightCm === undefined ||
-      convexUser.weight === undefined
+      convexUser.workoutsPerWeek === undefined ||
+      convexUser.lossPerWeek === undefined
     )
       return;
-    if (!user) return;
-    const bmr =
-      gender === "Male"
-        ? 10 * (convexUser.weight / 2.20462) +
-          6.25 * convexUser.heightCm -
-          5 * convexUser.age +
-          5
-        : 10 * (convexUser.weight / 2.20462) +
-          6.25 * convexUser.heightCm -
-          5 * convexUser.age -
-          161;
-    await ChangeGender({ userId: user.id, gender: gender, bmr: bmr });
+    void changeGenderSubmit(
+      ChangeGender,
+      user?.id,
+      convexUser?.age,
+      convexUser?.heightCm,
+      convexUser?.weight,
+      gender,
+      convexUser?.workoutsPerWeek,
+      convexUser?.lossPerWeek,
+    );
     router.back();
   };
   return (
@@ -98,7 +99,7 @@ const ChangeGender = () => {
       </View>
       <View className="mb-[50px] mx-[25px]">
         <TouchableOpacity
-          onPress={() => handleSubmit()}
+          onPress={() => submit()}
           disabled={!gender}
           className={`py-[22px] rounded-full items-center ${gender ? "bg-[#000000]" : "bg-gray-300"}`}
         >

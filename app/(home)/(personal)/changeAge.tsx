@@ -1,3 +1,4 @@
+import changeAgeSubmit from "@/app/functions/changeAge";
 import { api } from "@/convex/_generated/api";
 import { useClerk } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
@@ -16,31 +17,33 @@ const ChangeAge = () => {
     api.functions.user.getUser,
     user ? { userId: user?.id } : "skip",
   );
+
   const [age, setAge] = useState<number>(Number(convexUser?.age));
   const changeAge = useMutation(api.functions.user.changeUserAge);
 
-  const handleSubmit = async () => {
+  const submit = () => {
     if (
-      !convexUser ||
-      convexUser.heightCm === undefined ||
-      convexUser.age === undefined ||
-      convexUser.weight === undefined
+      !user ||
+      convexUser?.heightCm === undefined ||
+      convexUser.weight === undefined ||
+      convexUser.gender === undefined ||
+      convexUser.workoutsPerWeek === undefined ||
+      convexUser.lossPerWeek === undefined
     )
       return;
-    if (!user) return;
-    const bmr =
-      convexUser.gender === "Male"
-        ? 10 * (convexUser.weight / 2.20462) +
-          6.25 * convexUser.heightCm -
-          5 * age +
-          5
-        : 10 * (convexUser.weight / 2.20462) +
-          6.25 * convexUser.heightCm -
-          5 * age -
-          161;
-    await changeAge({ userId: user.id, age: age, bmr: bmr });
+    void changeAgeSubmit(
+      changeAge,
+      user?.id,
+      age,
+      convexUser?.heightCm,
+      convexUser?.weight,
+      convexUser?.gender,
+      convexUser?.workoutsPerWeek,
+      convexUser?.lossPerWeek,
+    );
     router.back();
   };
+
   return (
     <SafeAreaView className="flex-1">
       <View className="">
@@ -91,7 +94,7 @@ const ChangeAge = () => {
       </View>
       <View className="mb-[50px] mx-[25px]">
         <TouchableOpacity
-          onPress={() => handleSubmit()}
+          onPress={() => submit()}
           className="py-[22px] rounded-full items-center bg-[#000000]"
         >
           <Text className="text-[#ffffff] text-xl font-medium">

@@ -25,26 +25,17 @@ const OnboardingSubmit = async (
   steps: number,
 ) => {
   const bmi = CalculateBmi(heightCm, weight);
-  console.log("CalculateBmi result:", bmi);
 
   const bmr = CalculateBmr(heightCm, gender, weight, age);
-  console.log("CalculateBmr result:", bmr);
 
-  // multiplier number is temp for now MAKE SURE TO CHANGE TO DYNAMIC
   const multiplier = getActivityMultiplier(workoutsPerWeek);
-  console.log("getActivityMultiplier result:", multiplier);
 
   const tdee = CalculateTDEE(bmr, multiplier);
-  console.log("CalculateTDEE result:", tdee);
 
-  // Change number is temp for now MAKE SURE TO CHANGE TO DYNAMIC
   const change = calculateDeficitCalories(lossPerWeek);
-  console.log("calculateDeficitCalories result:", change);
   const calorieAjustment = AdjustGoalCalories(tdee, change);
-  console.log("AdjustGoalCalories result:", calorieAjustment);
 
   const splitMacros = ConvertToMacros(calorieAjustment);
-  console.log("ConvertToMacros result:", splitMacros);
 
   await addConvexUser({
     userId: userId,

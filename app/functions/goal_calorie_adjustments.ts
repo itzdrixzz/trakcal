@@ -3,7 +3,6 @@
 
 const AdjustGoalCalories = (TDEE: number, change: number) => {
   const Calories = TDEE - change;
-  console.log("Adjust Goal Calories: ", Calories);
   return Math.round(Calories);
 };
 

@@ -1,3 +1,4 @@
+import changeCurrentWeightSubmit from "@/app/functions/changeWeight";
 import { api } from "@/convex/_generated/api";
 import { useClerk } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
@@ -21,35 +22,28 @@ const ChangeCurrentWeight = () => {
   );
   const changeUserWeight = useMutation(api.functions.user.changeUserWeight);
 
-  const handleSubmit = async () => {
+  const submit = () => {
     if (
-      !convexUser ||
-      convexUser.heightCm === undefined ||
-      convexUser.age === undefined
-    ) {
+      !user ||
+      convexUser?.heightCm === undefined ||
+      convexUser.weight === undefined ||
+      convexUser.gender === undefined ||
+      convexUser.age === undefined ||
+      convexUser.workoutsPerWeek === undefined ||
+      convexUser.lossPerWeek === undefined
+    )
       return;
-    }
-    if (!user) return;
 
-    const heightInches = convexUser?.heightCm / 2.54;
-    const bmi = (currentWeight / heightInches ** 2) * 703;
-    const bmr =
-      convexUser.gender === "Male"
-        ? 10 * (currentWeight / 2.20462) +
-          6.25 * convexUser.heightCm -
-          5 * convexUser.age +
-          5
-        : 10 * (currentWeight / 2.20462) +
-          6.25 * convexUser.heightCm -
-          5 * convexUser.age -
-          161;
-
-    await changeUserWeight({
-      userId: user?.id,
-      weight: currentWeight,
-      bmi: bmi,
-      bmr: bmr,
-    });
+    void changeCurrentWeightSubmit(
+      changeUserWeight,
+      user.id,
+      convexUser.age,
+      convexUser.heightCm,
+      currentWeight,
+      convexUser.gender,
+      convexUser.workoutsPerWeek,
+      convexUser.lossPerWeek,
+    );
     router.back();
   };
 
@@ -100,7 +94,7 @@ const ChangeCurrentWeight = () => {
       </View>
       <View className="mb-[50px] mx-[25px]">
         <TouchableOpacity
-          onPress={() => handleSubmit()}
+          onPress={() => submit()}
           className="py-[22px] rounded-full items-center bg-[#000000]"
         >
           <Text className="text-[#ffffff] text-xl font-medium">

@@ -3,7 +3,6 @@
 
 const CalculateTDEE = (bmr: number, multiplier: number) => {
   const TDEE = bmr * multiplier;
-  console.log("TDEE: ", TDEE);
   return Math.round(TDEE);
 };
 

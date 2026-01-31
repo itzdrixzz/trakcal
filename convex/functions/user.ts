@@ -126,7 +126,28 @@ export const changeUserWeight = mutation(
       weight,
       bmi,
       bmr,
-    }: { userId: string; weight: number; bmi: number; bmr: number },
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    }: {
+      userId: string;
+      weight: number;
+      bmi: number;
+      bmr: number;
+      tdee: number;
+      calorieDeficit: number;
+      protienGrams: number;
+      fatGrams: number;
+      carbsGrams: number;
+      fiberTarget: number;
+      sugarLimit: number;
+      sodiumLimit: number;
+    },
   ) => {
     const user = await ctx.db
       .query("user")
@@ -137,7 +158,19 @@ export const changeUserWeight = mutation(
     }
     const docId = user[0]._id;
 
-    await ctx.db.patch(docId, { weight, bmi, bmr });
+    await ctx.db.patch(docId, {
+      weight,
+      bmi,
+      bmr,
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    });
   },
 );
 
@@ -149,7 +182,28 @@ export const changeUserHeight = mutation(
       heightCm,
       bmi,
       bmr,
-    }: { userId: string; heightCm: number; bmi: number; bmr: number },
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    }: {
+      userId: string;
+      heightCm: number;
+      bmi: number;
+      bmr: number;
+      tdee: number;
+      calorieDeficit: number;
+      protienGrams: number;
+      fatGrams: number;
+      carbsGrams: number;
+      fiberTarget: number;
+      sugarLimit: number;
+      sodiumLimit: number;
+    },
   ) => {
     const user = await ctx.db
       .query("user")
@@ -157,14 +211,50 @@ export const changeUserHeight = mutation(
       .collect();
     if (user.length === 0) return;
     const docId = user[0]._id;
-    await ctx.db.patch(docId, { heightCm, bmi, bmr });
+    await ctx.db.patch(docId, {
+      heightCm,
+      bmi,
+      bmr,
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    });
   },
 );
 
 export const changeUserAge = mutation(
   async (
     ctx,
-    { userId, age, bmr }: { userId: string; age: number; bmr: number },
+    {
+      userId,
+      age,
+      bmr,
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    }: {
+      userId: string;
+      age: number;
+      bmr: number;
+      tdee: number;
+      calorieDeficit: number;
+      protienGrams: number;
+      fatGrams: number;
+      carbsGrams: number;
+      fiberTarget: number;
+      sugarLimit: number;
+      sodiumLimit: number;
+    },
   ) => {
     const user = await ctx.db
       .query("user")
@@ -172,14 +262,49 @@ export const changeUserAge = mutation(
       .collect();
     if (user.length === 0) return;
     const docId = user[0]._id;
-    await ctx.db.patch(docId, { age, bmr });
+    await ctx.db.patch(docId, {
+      age,
+      bmr,
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    });
   },
 );
 
 export const changeUserGender = mutation(
   async (
     ctx,
-    { userId, gender, bmr }: { userId: string; gender: string; bmr: number },
+    {
+      userId,
+      gender,
+      bmr,
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    }: {
+      userId: string;
+      gender: string;
+      bmr: number;
+      tdee: number;
+      calorieDeficit: number;
+      protienGrams: number;
+      fatGrams: number;
+      carbsGrams: number;
+      fiberTarget: number;
+      sugarLimit: number;
+      sodiumLimit: number;
+    },
   ) => {
     const user = await ctx.db
       .query("user")
@@ -187,7 +312,18 @@ export const changeUserGender = mutation(
       .collect();
     if (user.length === 0) return;
     const docId = user[0]._id;
-    await ctx.db.patch(docId, { gender, bmr });
+    await ctx.db.patch(docId, {
+      gender,
+      bmr,
+      tdee,
+      calorieDeficit,
+      protienGrams,
+      fatGrams,
+      carbsGrams,
+      fiberTarget,
+      sugarLimit,
+      sodiumLimit,
+    });
   },
 );
 

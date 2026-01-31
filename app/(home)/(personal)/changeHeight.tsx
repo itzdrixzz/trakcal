@@ -1,3 +1,4 @@
+import changeHeightSubmit from "@/app/functions/changeHeight";
 import { api } from "@/convex/_generated/api";
 import { useClerk } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
@@ -18,35 +19,30 @@ const ChangeHeight = () => {
   );
   const [heightCm, setHeight] = useState<number>(Number(convexUser?.heightCm));
   const ChangeHeight = useMutation(api.functions.user.changeUserHeight);
-  const handleSubmit = async () => {
+
+  const submit = () => {
     if (
-      convexUser?.heightCm === undefined ||
-      convexUser.weight === undefined ||
-      convexUser.age === undefined
+      !user ||
+      convexUser?.weight === undefined ||
+      convexUser.gender === undefined ||
+      convexUser.age === undefined ||
+      convexUser.workoutsPerWeek === undefined ||
+      convexUser.lossPerWeek === undefined
     )
       return;
-    if (!user) return;
-    const heightInches = heightCm / 2.54;
-    const bmi = (convexUser.weight / heightInches ** 2) * 703;
-    const bmr =
-      convexUser.gender === "Male"
-        ? 10 * (convexUser.weight / 2.20462) +
-          6.25 * heightCm -
-          5 * convexUser.age +
-          5
-        : 10 * (convexUser.weight / 2.20462) +
-          6.25 * heightCm -
-          5 * convexUser.age -
-          161;
-
-    await ChangeHeight({
-      userId: user.id,
-      heightCm: heightCm,
-      bmi: bmi,
-      bmr: bmr,
-    });
+    void changeHeightSubmit(
+      ChangeHeight,
+      user?.id,
+      convexUser?.age,
+      heightCm,
+      convexUser?.weight,
+      convexUser?.gender,
+      convexUser?.workoutsPerWeek,
+      convexUser?.lossPerWeek,
+    );
     router.back();
   };
+
   return (
     <SafeAreaView className="flex-1">
       <View className="">
@@ -94,7 +90,7 @@ const ChangeHeight = () => {
       </View>
       <View className="mb-[50px] mx-[25px]">
         <TouchableOpacity
-          onPress={() => handleSubmit()}
+          onPress={() => submit()}
           className="py-[22px] rounded-full items-center bg-[#000000]"
         >
           <Text className="text-[#ffffff] text-xl font-medium">
