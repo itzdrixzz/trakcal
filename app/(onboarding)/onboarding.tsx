@@ -1,10 +1,10 @@
 import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/clerk-expo";
-import axios from "axios";
 import { useMutation } from "convex/react";
 import { Redirect, router } from "expo-router";
 import React, { useState } from "react";
 import { Text } from "react-native";
+import OnboardingSubmit from "../functions/onboardingSubmit";
 import Desired from "./desired-weight";
 import Fast from "./fast";
 import Gender from "./gender";
@@ -66,60 +66,23 @@ const Onboarding = () => {
 
   if (!isSignedIn || !user) return <Redirect href="/welcome-screen" />;
 
-  const Submit = async () => {
-    const heightInches = Number(form.metrics.height) / 2.54;
-    const bmi = (form.metrics.weight / heightInches ** 2) * 703;
-    const bmr =
-      form.gender === "Male"
-        ? 10 * (form.metrics.weight / 2.20462) +
-          6.25 * Number(form.metrics.height) -
-          5 * Number(form.metrics.age) +
-          5
-        : 10 * (form.metrics.weight / 2.20462) +
-          6.25 * Number(form.metrics.height) -
-          5 * Number(form.metrics.age) -
-          161;
-
-    await addConvexUser({
-      userId: user.id,
-      age: Number(form.metrics.age),
-      desiredWeight: Number(form.desiredWeight),
-      gender: form.gender,
-      goal: form.goal,
-      heightCm: Number(form.metrics.height),
-      lossPerWeek: Number(form.fast),
-      weight: Number(form.metrics.weight),
-      workoutsPerWeek: form.workouts,
-      firstName: user.firstName ?? "",
-      lastName: user.lastName ?? "",
-      username: user.username ?? "",
-      steps: 10000,
-      bmi: bmi,
-      bmr: bmr,
-    });
-
-    console.log("User added to convex database succsesfully");
-
-    try {
-      const json = {
-        id: user.id,
-      };
-
-      const response = await axios.post(
-        "https://aerological-cathleen-eximiously.ngrok-free.dev/clerk/update/metadata/completedonboarding",
-        json,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        },
-      );
-      console.log("Response:", response.data);
-      console.log("api sent");
-      router.push("/(home)/(tabs)/home");
-    } catch (error) {
-      console.log("Error", error);
-    }
+  const submit = () => {
+    void OnboardingSubmit(
+      addConvexUser,
+      user.id,
+      Number(form.metrics.age),
+      form.desiredWeight,
+      form.gender,
+      form.goal,
+      Number(form.metrics.height),
+      form.fast,
+      Number(form.metrics.weight),
+      form.workouts,
+      user.firstName || "",
+      user.lastName || "",
+      user.username || "",
+      10000,
+    );
   };
 
   if (!isLoaded) return <Text>Loading...</Text>;
@@ -195,7 +158,7 @@ const Onboarding = () => {
           goal={form.goal}
           fast={form.fast}
           onChange={(value) => setForm({ ...form, fast: value })}
-          onNext={Submit}
+          onNext={submit}
           onBack={back}
         />
       )}

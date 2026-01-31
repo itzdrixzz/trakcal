@@ -60,6 +60,14 @@ export const addUser = mutation({
     steps: v.number(),
     bmi: v.number(),
     bmr: v.number(),
+    tdee: v.number(),
+    calorieDeficit: v.number(),
+    protienGrams: v.number(),
+    fatGrams: v.number(),
+    carbsGrams: v.number(),
+    fiberTarget: v.number(),
+    sugarLimit: v.number(),
+    sodiumLimit: v.number(),
   },
   handler: async (ctx, args) => {
     const user = await ctx.db.insert("user", {
@@ -78,6 +86,14 @@ export const addUser = mutation({
       steps: args.steps,
       bmi: args.bmi,
       bmr: args.bmr,
+      tdee: args.tdee,
+      calorieDeficit: args.calorieDeficit,
+      protienGrams: args.protienGrams,
+      fatGrams: args.fatGrams,
+      carbsGrams: args.carbsGrams,
+      fiberTarget: args.fiberTarget,
+      sugarLimit: args.sugarLimit,
+      sodiumLimit: args.sodiumLimit,
     });
     return user;
   },

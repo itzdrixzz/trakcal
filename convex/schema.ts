@@ -18,5 +18,13 @@ export default defineSchema({
     steps: v.optional(v.number()),
     bmi: v.optional(v.number()),
     bmr: v.optional(v.number()),
+    tdee: v.optional(v.number()),
+    calorieDeficit: v.optional(v.number()),
+    protienGrams: v.optional(v.number()),
+    fatGrams: v.optional(v.number()),
+    carbsGrams: v.optional(v.number()),
+    fiberTarget: v.optional(v.number()),
+    sugarLimit: v.optional(v.number()),
+    sodiumLimit: v.optional(v.number()),
   }).index("by_userId", ["userId"]),
 });
