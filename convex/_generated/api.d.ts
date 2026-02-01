@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as functions_tracking from "../functions/tracking.js";
 import type * as functions_user from "../functions/user.js";
 
 import type {
@@ -17,6 +18,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  "functions/tracking": typeof functions_tracking;
   "functions/user": typeof functions_user;
 }>;
 
