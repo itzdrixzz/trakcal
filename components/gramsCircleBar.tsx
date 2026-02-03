@@ -1,12 +1,13 @@
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import Svg, { Circle } from "react-native-svg";
 
 type CircleProgressProps = {
   progress: number; // 0..1
 
   size?: number;
+  text: string;
   strokeWidth?: number;
 
   color?: string;
@@ -21,9 +22,10 @@ type CircleProgressProps = {
   textClassName?: string;
 };
 
-const CircleProgress = ({
+const GramsCircleProgress = ({
   progress,
   size = 120,
+  text = "",
   strokeWidth = 12,
   color = "#1e1a24",
   trackColor = "#e5e7eb",
@@ -33,6 +35,19 @@ const CircleProgress = ({
   containerClassName = "",
   textClassName = "",
 }: CircleProgressProps) => {
+  const renderMacroImage = (text: string) => {
+    switch (text) {
+      case "protein":
+        return <FontAwesome5 name="drumstick-bite" size={24} color="#dc6667" />;
+      case "carbs":
+        return <FontAwesome5 name="apple-alt" size={24} color="#db9461" />;
+      case "fat":
+        return <Ionicons name="fish" size={24} color="#6897de" />;
+      default:
+        return null;
+    }
+  };
+
   const clamped = Math.max(0, Math.min(1, progress));
 
   const radius = (size - strokeWidth) / 2;
@@ -74,10 +89,18 @@ const CircleProgress = ({
       </Svg>
 
       {showText && (
-        <Ionicons name="flame" className="absolute" size={32} color="#ff732e" />
+        <Text
+          className={`absolute font-semibold ${textClassName}`}
+          style={{
+            fontSize: size * 0.35,
+            color: textColor,
+          }}
+        >
+          {renderMacroImage(text)}
+        </Text>
       )}
     </View>
   );
 };
 
-export default CircleProgress;
+export default GramsCircleProgress;

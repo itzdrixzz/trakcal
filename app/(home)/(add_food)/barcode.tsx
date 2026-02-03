@@ -1,0 +1,97 @@
+import { Ionicons } from "@expo/vector-icons";
+import { CameraView, useCameraPermissions } from "expo-camera";
+import { router } from "expo-router";
+import React, { useEffect, useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+
+const BarcodeScannerScreen = () => {
+  const [permission, requestPermission] = useCameraPermissions();
+  const [scanned, setScanned] = useState(false);
+  const [torchOn, setTorchOn] = useState(false);
+
+  useEffect(() => {
+    if (!permission) return;
+    if (!permission.granted) requestPermission();
+  }, [permission, requestPermission]);
+
+  if (!permission) {
+    return (
+      <View className="flex-1 items-center justify-center">
+        <Text> Requesting camera permissions</Text>
+      </View>
+    );
+  }
+
+  if (!permission.granted) {
+    return (
+      <View className="flex-1 items-center justify-center p-6">
+        <Text className="text-center mb-4">
+          Camera permissions are requiered
+        </Text>
+        <TouchableOpacity
+          onPress={requestPermission}
+          className="bg-black px-4 py-3 rounded-xl"
+        >
+          <Text>Grant Permission</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  return (
+    <View className="flex-1 bg-black">
+      <CameraView
+        style={{ flex: 1 }}
+        enableTorch={torchOn}
+        barcodeScannerSettings={{
+          barcodeTypes: ["ean13", "ean8", "upc_a", "upc_e", "code128", "qr"],
+        }}
+        onBarcodeScanned={async ({ data }) => {
+          if (scanned) return;
+          setScanned(true);
+          console.log(data);
+        }}
+      />
+
+      <View className="absolute top-16 left-4">
+        <TouchableOpacity onPress={() => router.back()}>
+          <View className="w-[40px] h-[40px] bg-white items-center justify-center rounded-full">
+            <Ionicons name="arrow-back" size={28} color="black" />
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <View className="absolute top-16 right-4">
+        <TouchableOpacity onPress={() => setTorchOn((v) => !v)}>
+          <View className="w-[40px] h-[40px] bg-white items-center justify-center rounded-full">
+            <Ionicons
+              name={torchOn ? "flash" : "flash-off"}
+              size={28}
+              color="black"
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <View className="absolute bottom-6 left-4 right-4 bg-black/70 rounded-2xl p-4">
+        <Text className="text-white font-semibold text-base">
+          Scan a barcode
+        </Text>
+        <Text className="text-white/80 mt-1">
+          Hold the barcode inside the camera view.
+        </Text>
+
+        {scanned && (
+          <TouchableOpacity
+            onPress={() => setScanned(false)}
+            className="mt-3 bg-white rounded-xl py-3 items-center"
+          >
+            <Text className="font-semibold">Tap to scan again</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+    </View>
+  );
+};
+
+export default BarcodeScannerScreen;

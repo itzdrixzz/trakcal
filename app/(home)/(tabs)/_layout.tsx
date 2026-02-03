@@ -1,24 +1,68 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { router, Tabs } from "expo-router";
 import { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
 
 export default function TabLayout() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      {/* ✅ Absolute overlay */}
       {open && (
         <Pressable
           onPress={() => setOpen(false)}
           className="absolute inset-0 z-50 bg-black/40"
         >
-          <View className="absolute bottom-28 right-4 w-56 rounded-2xl bg-white p-4">
-            <Text className="text-base font-semibold">Quick actions</Text>
-            <Text className="mt-2">Log food</Text>
-            <Text className="mt-2">Add meal</Text>
-            <Text className="mt-2">Scan barcode</Text>
+          <View className="absolute bottom-28 inset-x-4 rounded-2xl p-4">
+            <View className="gap-4">
+              <View className=" flex-row gap-6">
+                <View className="bg-red-400 flex-1 items-center rounded-lg">
+                  <TouchableOpacity className="items-center w-full">
+                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                      <Ionicons name="search" size={28} color="black" />
+                    </View>
+                    <Text className="text-center my-2 text-lg font-medium">
+                      Log Food
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <View className="bg-blue-400 flex-1 items-center rounded-lg">
+                  <TouchableOpacity
+                    onPress={() => router.push("/(home)/(add_food)/barcode")}
+                    className="items-center w-full"
+                  >
+                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                      <Ionicons name="barcode" size={28} color="black" />
+                    </View>
+                    <Text className="text-center my-2 text-lg font-medium">
+                      Barcode Scan
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View className=" flex-row gap-6 ">
+                <View className="bg-orange-400 flex-1 items-center rounded-lg">
+                  <TouchableOpacity className="items-center w-full">
+                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                      <Ionicons name="scan" size={28} color="black" />
+                    </View>
+                    <Text className="text-center my-2 text-lg font-medium">
+                      Meal Scan
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <View className="bg-yellow-400 flex-1 items-center rounded-lg">
+                  <TouchableOpacity className="items-center w-full">
+                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                      <Ionicons name="bookmark" size={28} color="black" />
+                    </View>
+                    <Text className="text-center my-2 text-lg font-medium">
+                      Saved Meals
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
           </View>
         </Pressable>
       )}
