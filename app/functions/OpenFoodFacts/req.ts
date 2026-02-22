@@ -9,6 +9,7 @@ const getFoodFactsByBarcode = async (barcode: string) => {
     const body = response.data;
     const product = body.product;
     const nutriments = product.nutriments;
+    const id = product._id;
 
     const name = product.product_name;
     const brand = product.brands;
@@ -33,10 +34,11 @@ const getFoodFactsByBarcode = async (barcode: string) => {
       fiber,
       sugar,
       sodium,
+      id,
     };
   } catch (error) {
     console.error("Error fetching food:", error);
-    return null; // so your app doesn’t crash
+    return null;
   }
 };
 

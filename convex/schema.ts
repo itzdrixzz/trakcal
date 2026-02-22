@@ -67,4 +67,9 @@ export default defineSchema({
   })
     .index("by_dayId", ["dayId"])
     .index("by_userId_createdAt", ["createdAt"]),
+
+  favorites: defineTable({
+    userId: v.string(),
+    productId: v.string(),
+  }).index("by_userId", ["userId"]),
 });

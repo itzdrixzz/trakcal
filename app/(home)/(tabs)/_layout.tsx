@@ -1,10 +1,12 @@
+import { useUser } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 import { router, Tabs } from "expo-router";
 import { useState } from "react";
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import { Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 
 export default function TabLayout() {
   const [open, setOpen] = useState(false);
+  const { user } = useUser();
 
   return (
     <>
@@ -16,9 +18,9 @@ export default function TabLayout() {
           <View className="absolute bottom-28 inset-x-4 rounded-2xl p-4">
             <View className="gap-4">
               <View className=" flex-row gap-6">
-                <View className="bg-red-400 flex-1 items-center rounded-lg">
+                <View className="bg-white flex-1 items-center rounded-lg">
                   <TouchableOpacity className="items-center w-full">
-                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                    <View className="bg-white border-[1px] rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
                       <Ionicons name="search" size={28} color="black" />
                     </View>
                     <Text className="text-center my-2 text-lg font-medium">
@@ -26,12 +28,15 @@ export default function TabLayout() {
                     </Text>
                   </TouchableOpacity>
                 </View>
-                <View className="bg-blue-400 flex-1 items-center rounded-lg">
+                <View className="bg-white flex-1 items-center rounded-lg">
                   <TouchableOpacity
-                    onPress={() => router.push("/(home)/(add_food)/barcode")}
+                    onPress={() => {
+                      router.push("/(home)/(add_food)/barcode");
+                      setOpen(false);
+                    }}
                     className="items-center w-full"
                   >
-                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                    <View className="bg-white border-[1px] rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
                       <Ionicons name="barcode" size={28} color="black" />
                     </View>
                     <Text className="text-center my-2 text-lg font-medium">
@@ -41,9 +46,15 @@ export default function TabLayout() {
                 </View>
               </View>
               <View className=" flex-row gap-6 ">
-                <View className="bg-orange-400 flex-1 items-center rounded-lg">
-                  <TouchableOpacity className="items-center w-full">
-                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                <View className="bg-white flex-1 items-center rounded-lg">
+                  <TouchableOpacity
+                    onPress={() => {
+                      router.push("/(home)/(add_food)/meal_scan");
+                      setOpen(false);
+                    }}
+                    className="items-center w-full"
+                  >
+                    <View className="bg-white border-[1px] rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
                       <Ionicons name="scan" size={28} color="black" />
                     </View>
                     <Text className="text-center my-2 text-lg font-medium">
@@ -51,9 +62,9 @@ export default function TabLayout() {
                     </Text>
                   </TouchableOpacity>
                 </View>
-                <View className="bg-yellow-400 flex-1 items-center rounded-lg">
+                <View className="bg-white flex-1 items-center rounded-lg">
                   <TouchableOpacity className="items-center w-full">
-                    <View className="bg-white rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
+                    <View className="bg-white border-[1px] rounded-full w-[40px] h-[40px] mt-4 justify-center items-center">
                       <Ionicons name="bookmark" size={28} color="black" />
                     </View>
                     <Text className="text-center my-2 text-lg font-medium">
@@ -102,9 +113,17 @@ export default function TabLayout() {
           name="settings"
           options={{
             title: "Settings",
-            tabBarIcon: ({ color }) => (
-              <Ionicons name="cog-outline" size={28} color={color} />
-            ),
+            tabBarIcon: ({ size }) =>
+              user?.imageUrl ? (
+                <Image
+                  source={{ uri: user.imageUrl }}
+                  style={{
+                    width: size,
+                    height: size,
+                    borderRadius: size / 2,
+                  }}
+                />
+              ) : null,
           }}
         />
 
@@ -118,7 +137,6 @@ export default function TabLayout() {
                 onPress={() => setOpen((v) => !v)}
                 className="flex-1 h-full items-center justify-center"
               >
-                {/* circle */}
                 <View className="h-16 w-16 rounded-full bg-[#1e1a24] items-center justify-center ml-[-10px]">
                   <Ionicons name="add-outline" size={26} color="white" />
                 </View>

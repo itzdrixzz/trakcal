@@ -17,6 +17,7 @@ type food = {
   sugar: number;
   fiber: number;
   sodium: number;
+  id: string;
 };
 
 const BarcodeScannerScreen = () => {
@@ -36,6 +37,7 @@ const BarcodeScannerScreen = () => {
     sugar: 0,
     fiber: 0,
     sodium: 0,
+    id: "",
   });
 
   const next = () => setStep((s) => Math.min(s + 1, 1));
@@ -101,6 +103,7 @@ const BarcodeScannerScreen = () => {
               sugar: food.sugar,
               fiber: food.fiber,
               sodium: food.sodium,
+              id: food.id,
             };
 
             setForm(newForm);
@@ -162,6 +165,7 @@ const BarcodeScannerScreen = () => {
         sodium={form.sodium}
         name={`${form.name}`}
         brand={`${form.brand}`}
+        id={form.id}
         onBack={() => back()}
       />
     );

@@ -19,7 +19,10 @@ const getWeekRange = (weekOffset = 0) => {
 
     days.push({
       date: d.toISOString().slice(0, 10), // YYYY-MM-DD
-      label: d.toLocaleDateString("en-US", { weekday: "short" }), // Mon
+      label: d.toLocaleDateString("en-US", {
+        weekday: "short",
+        timeZone: "UTC",
+      }), // Mon
     });
   }
 
